@@ -1,0 +1,82 @@
+
+.banner{
+    display: flex;
+
+}
+.first-stripe{
+    /* background: linear-gradient(135deg, #04b3b3 0%, #04b3b3 10%, white 0%, white 5%, #04b3b3 0%); */
+    background: linear-gradient(120deg, #04b3b3 0, #04b3b3 100px, white 0, white 250px, #04b3b3 0);
+    background-repeat: no-repeat;
+    height: 270px;
+    width: 200px;
+}
+.second-stripe{
+    /* background: linear-gradient(135deg, #04b3b3 0%, #04b3b3 10%, white 0%, white 5%, #04b3b3 0%); */
+    background: linear-gradient(120deg, white 0, white 77px, #04b3b3 0, #04b3b3 135px, white 0);
+    background-repeat: no-repeat;
+    height: 270px;
+    width: 130px;
+}
+.third-stripe{
+    /* background: linear-gradient(135deg, #04b3b3 0%, #04b3b3 10%, white 0%, white 5%, #04b3b3 0%); */
+    background: linear-gradient(120deg, #04b3b3 0, #04b3b3 22.5px, white 0, white 134px, #04b3b3 0);
+    background-repeat: no-repeat;
+    height: 270px;
+    width: 30px;
+}
+
+.fourth-stripe{
+    /* background: linear-gradient(135deg, #04b3b3 0%, #04b3b3 10%, white 0%, white 5%, #04b3b3 0%); */
+    background: linear-gradient(120deg, white 0, white 108px, #04b3b3 0, #04b3b3 150px, white 0);
+    background-repeat: no-repeat;
+    height: 270px;
+    width: 100px;
+}
+.fifth-stripe-top{
+    /* background: linear-gradient(135deg, #04b3b3 0%, #04b3b3 10%, white 0%, white 5%, #04b3b3 0%); */
+    background: linear-gradient(120deg, white 0, white 21.5px, #04b3b3 0, #04b3b3 63.5px, white 0);
+    background-repeat: no-repeat;
+    height: 140px;
+    width: 75px;
+}
+.fifth-stripe-bottom{
+    /* background: linear-gradient(135deg, #04b3b3 0%, #04b3b3 10%, white 0%, white 5%, #04b3b3 0%); */
+    background: linear-gradient(120deg, white 0, white 70px, #04b3b3 0, #04b3b3 130px, white 0);
+    background-repeat: no-repeat;
+    height: 130px;
+    width: 75px;
+}
+.sixth-stripe{
+    /* background: linear-gradient(135deg, #04b3b3 0%, #04b3b3 10%, white 0%, white 5%, #04b3b3 0%); */
+    background: linear-gradient(120deg, white 0, white 75px, #04b3b3 0, #04b3b3 250px, white 0);
+    background-repeat: no-repeat;
+    height: 270px;
+    width: 100px;
+}
+.no-stripe{
+    background-color: #04b3b3;
+    width: calc(100% - 635px);
+}
+.title{
+    padding-top: 10px;
+}
+.first-line{
+    font-size: 30px;
+    font-weight: bold;
+}
+.second-line{
+    font-size: 35px;
+    font-weight: 100;
+}
+.header{
+    margin-left: auto;
+    margin-right: 0;
+    width: 450px;
+    height: 50px;
+    background-color: white;
+    border-radius: 30px;
+    filter:drop-shadow(5px 5px 5px #878686);    
+    text-align: center;
+    padding: 20px;
+    padding-top: 11px;
+}
