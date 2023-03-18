@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/forteachers', function () {
-    return view('/for_teachers/lessons');
+Route::get('/for_teachers', function () {
+    return view('/for_teachers/grammar');
+});
+
+Route::get('/for_teachers/simple_sentences', function () {
+    return view('/for_teachers/grammar/simple_sentences');
 });

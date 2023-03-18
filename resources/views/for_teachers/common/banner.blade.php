@@ -1,6 +1,6 @@
 @extends('for_teachers.main')
 @push('css')
-    <link href="{{ asset('css/banner.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/common/banner.css') }}" rel="stylesheet">
 @endpush
 @section('banner')
 <div class="banner">
@@ -21,22 +21,6 @@
                         <span>Contact</span>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="title">
-            <div class="msg">
-            </div>
-            <div class="container">
-            <div class="row">
-                <div class="col text-picture">
-                </div>
-                <div class="col-6 msg">
-                    <span class="first-line">test materials</span><br>
-                    <span class="second-line">test test</span>
-                </div>
-                <div class="col">
-                </div>
-            </div>
             </div>
         </div>
     </div>
