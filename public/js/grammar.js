@@ -7,12 +7,13 @@ $(function(){
     var count = 0;
     $('.js-modal-open').mouseover(
         function(){
-            $(this).addClass('opening');
-            console.log($(this).attr('class'));
+            
+            $(this).addClass('hovering');
             timer = setInterval(function(){
                     count++;
                     if(count === 4){
-                        console.log(count);
+                        $('.hovering').addClass('opening');
+                        $('.hovering').removeClass('hovering');
                         count = 0;
                         clearInterval(timer);
                         $('.js-modal').fadeIn();
@@ -20,7 +21,6 @@ $(function(){
                     }
                 },100
             );
-            $(this).off('click');
         }
     ).mouseout(
         function(){
@@ -28,14 +28,15 @@ $(function(){
             clearInterval(timer);
         }
     )
-    // $('.js-modal-open').on('click',function(){
-    //     $('.js-modal').fadeIn();
-    //     return false;
-    // });
     $('.js-modal-close').on('click',function(){
-        $('.js-modal').fadeOut();
-        count = 0;
-        clearInterval(timer);
-        return false;
+        var openingClassNum = $('.opening').length;
+        console.log(openingClassNum);
+        if(openingClassNum > 0){
+            // console.log(openingClassNum);
+            $('.opening').removeClass('opening');
+            $('.js-modal').fadeOut();
+            clearInterval(timer);
+            return false;
+        }
     });
 });
