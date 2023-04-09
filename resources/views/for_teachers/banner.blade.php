@@ -28,11 +28,11 @@
             </div>
             <div class="container">
             <div class="row">
-                <div class="col text-picture">
+                <div class="col-2 text-picture">
                 </div>
-                <div class="col-6 msg">
-                    <span class="first-line">test materials</span><br>
-                    <span class="second-line">test test</span>
+                <div class="col-10 msg">
+                    <span class="first-line">More than 1000 Materials</span><br>
+                    <span class="second-line">You can find customizable English teaching materials!</span>
                 </div>
                 <div class="col">
                 </div>
