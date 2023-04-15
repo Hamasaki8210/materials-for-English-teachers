@@ -1,8 +1,13 @@
+$(function() {
+    // 2ツールチップ機能を適用
+    $('#main').tooltip();
+  });
 $(function(){
     // $('.js-modal-open').hover(function(){
     //     $('.js-modal').fadeIn();
     //     return false;
     // });
+
     var timer = "";
     var count = 0;
     $('.js-modal-open').mouseover(
@@ -10,6 +15,13 @@ $(function(){
             
             $(this).addClass('hovering');
             timer = setInterval(function(){
+                    $(document).tooltip({
+                        position:{
+                            my:"left+30 top",
+                            at:"right top",
+                            collision:"flipfit"
+                        }
+                    });
                     count++;
                     if(count === 4){
                         $('.hovering').addClass('opening');

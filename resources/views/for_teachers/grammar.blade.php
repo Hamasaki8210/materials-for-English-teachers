@@ -1,15 +1,20 @@
 @extends('for_teachers.contents')
 @push('css')
     <link href="{{ asset('css/grammar.css') }}" rel="stylesheet">
+    <link type="text/css" rel="stylesheet"
+  href="http://code.jquery.com/ui/1.13.2/themes/cupertino/jquery-ui.min.css" />
+
 @endpush
 @push('js')
     <script
         src="https://code.jquery.com/jquery-3.6.4.js"
         integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
         crossorigin="anonymous"></script>
+        <!-- <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script> -->
     <script src="{{ asset('js/grammar.js') }}" async></script>
 @endpush
 @section('grammar')
+
 <div class="grammar-area-outer">
     <div class="grammar-area-inner">
         <div class="tense-title">Tenses</div>
@@ -107,5 +112,16 @@
         <p>ここにモーダルウィンドウで表示したいコンテンツを入れます。モーダルウィンドウを閉じる場合は下の「閉じる」をクリックするか、背景の黒い部分をクリックしても閉じることができます。</p>
         <a class="js-modal-close" href="">閉じる</a>
     </div><!--modal__inner-->
+</div>
+<script type="text/javascript">
+$(function() {
+    $(document).ready(function() {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+});
+</script>
+<div class="container">
+  <a href="#" data-toggle="tooltip" data-placement="top" title="Hooray!">Top</a>
+  <a href="#" data-toggle="tooltip" data-placement="right" title="Hooray!">Right</a>
 </div>
 @endsection

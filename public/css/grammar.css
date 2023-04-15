@@ -235,3 +235,8 @@
 .js-modal-open{
     cursor: pointer;
 }
+
+
+.tooltip .arrow{
+    display: none!important;
+}
