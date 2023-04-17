@@ -226,7 +226,18 @@
     visibility: visible;
     opacity: 1;
 }
-
+.three-lines:hover .pulldown-to-right-threelines{
+    width: 130px;
+    left: 100px;
+    visibility: visible;
+    opacity: 1;
+}
+.three-lines:hover .pulldown-to-left-threelines{
+    width: 130px;
+    right: 130px;
+    visibility: visible;
+    opacity: 1;
+}
 .pulldown-to-left{
     opacity: 0;
     right: 0;
@@ -251,8 +262,33 @@
     width: 0px;
     transition: .7s;
 }
+.pulldown-to-right-threelines{
+    opacity: 0;
+    left: 0;
+    visibility: hidden;
+	position: relative;
+    bottom: 80px;
+    border-radius: 5px;
+    height: 105px;
+    color: white;
+    width: 0px;
+    transition: .7s;
+}
+.pulldown-to-left-threelines{
+    opacity: 0;
+    right: 0;
+    visibility: hidden;
+	position: relative;
+    bottom: 80px;
+    border-radius: 5px;
+    height: 105px;
+    color: white;
+    width: 0px;
+    transition: .7s;
+}
+
 .pulldown-past{
-    background-color: #404b4d;
+    background-color: #4c5a5c;
 }
 .pulldown-present{
     background-color: rgb(144, 164, 174);
@@ -270,13 +306,13 @@
     background-color: #feefab;
     color: grey;
 }
-.balloon-past-bottom:hover{
-    background-color: #404b4d;
+.balloon-past-bottom:hover, .balloon-past-top:hover{
+    background-color: #4c5a5c;
 }
-.balloon-present-bottom:hover{
+.balloon-present-bottom:hover, .balloon-present-top:hover{
     background-color: rgb(144, 164, 174);
 }
-.balloon-future-bottom:hover{
+.balloon-future-bottom:hover, .balloon-future-top:hover{
     background-color: rgb(189, 189, 189);
 }
 .balloon-past-bottom:hover:after, .balloon-present-bottom:hover:after, .balloon-future-bottom:hover:after{
@@ -296,13 +332,22 @@
     border: 15px solid transparent;
 }
 .balloon-past-bottom:hover:after{
-    border-bottom: 15px solid #404b4d;
+    border-bottom: 15px solid #4c5a5c;
 }
 .balloon-present-bottom:hover:after{
     border-bottom: 15px solid rgb(144, 164, 174);
 }
 .balloon-future-bottom:hover:after{
     border-bottom: 15px solid rgb(189, 189, 189);
+}
+.balloon-past-top:hover:after{
+    border-top: 15px solid #4c5a5c;
+}
+.balloon-present-top:hover:after{
+    border-top: 15px solid rgb(144, 164, 174);
+}
+.balloon-future-top:hover:after{
+    border-top: 15px solid rgb(189, 189, 189);
 }
 .overlap-1st{
     z-index: 3;
