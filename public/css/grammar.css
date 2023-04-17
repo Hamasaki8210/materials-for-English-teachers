@@ -91,7 +91,7 @@
     height: 50px;
 }
 .balloon-past-top, .balloon-past-bottom{
-    background: rgb(27, 45, 54);
+    background: rgb(18, 30, 36);
 }
 .balloon-present-top, .balloon-present-bottom{
     background: rgb(85, 107, 119);
@@ -108,7 +108,7 @@
     border: 15px solid transparent;
 }
 .balloon-past-top:after{
-    border-top: 15px solid rgb(27, 45, 54);
+    border-top: 15px solid rgb(18, 30, 36);
 }
 .balloon-present-top:after{
     border-top: 15px solid rgb(85, 107, 119);
@@ -125,7 +125,7 @@
     border: 15px solid transparent;
 }
 .balloon-past-bottom:after{
-    border-bottom: 15px solid rgb(27, 45, 54);
+    border-bottom: 15px solid rgb(18, 30, 36);
 }
 .balloon-present-bottom:after{
     border-bottom: 15px solid rgb(85, 107, 119);
@@ -164,28 +164,11 @@
 .two-lines{
     padding-top: 17px;
 }
-.overlap-1st{
-    z-index: 3;
-}
-.overlap-2nd{
-    z-index: 2;
-}
-.overlap-3rd{
-    z-index: 0;
-}
-.overlap-4th{
-    z-index: 1;
-}
-/* .overlap-opposite:hover .overlap-3rd{
-    z-index: 0 !important;
-}
-.overlap-opposite:hover .overlap-4th{
-    z-index: 1 !important;
-} */
+
 
 /* timeline */
 .timeline-past{
-    background-color: rgb(27, 45, 54);
+    background-color: rgb(18, 30, 36);
     color: rgba(197, 194, 194, 0.541);
     border-radius: 5px 0 0 5px;
 }
@@ -269,7 +252,7 @@
     transition: .7s;
 }
 .pulldown-past{
-    background-color: rgb(84, 105, 117);
+    background-color: #404b4d;
 }
 .pulldown-present{
     background-color: rgb(144, 164, 174);
@@ -288,7 +271,7 @@
     color: grey;
 }
 .balloon-past-bottom:hover{
-    background-color: rgb(84, 105, 117);
+    background-color: #404b4d;
 }
 .balloon-present-bottom:hover{
     background-color: rgb(144, 164, 174);
@@ -304,12 +287,32 @@
     margin-left: -15px;
     border: 15px solid transparent;
 }
+.balloon-past-top:hover:after, .balloon-present-top:hover:after, .balloon-future-top:hover:after{
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    margin-left: -15px;
+    border: 15px solid transparent;
+}
 .balloon-past-bottom:hover:after{
-    border-bottom: 15px solid rgb(84, 105, 117);
+    border-bottom: 15px solid #404b4d;
 }
 .balloon-present-bottom:hover:after{
     border-bottom: 15px solid rgb(144, 164, 174);
 }
 .balloon-future-bottom:hover:after{
     border-bottom: 15px solid rgb(189, 189, 189);
+}
+.overlap-1st{
+    z-index: 3;
+}
+.overlap-2nd{
+    z-index: 2;
+}
+.overlap-3rd{
+    z-index: 1;
+}
+.overlap-4th{
+    z-index: 0;
 }
