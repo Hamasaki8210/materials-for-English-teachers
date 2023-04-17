@@ -31,6 +31,7 @@
     font-weight: bold;
     border-radius: 5px;
     box-sizing: border-box;
+    cursor: pointer;
 }
 .past-area-top{
     animation: balloon-top 1.2s normal forwards;
@@ -62,6 +63,7 @@
     animation-delay: 1.2s;
     visibility: hidden;
 }
+
 @keyframes balloon-top {
     from {
         opacity: 0;
@@ -104,7 +106,6 @@
     left: 50%;
     margin-left: -15px;
     border: 15px solid transparent;
-    z-index: 0;
 }
 .balloon-past-top:after{
     border-top: 15px solid rgb(27, 45, 54);
@@ -122,7 +123,6 @@
     left: 50%;
     margin-left: -15px;
     border: 15px solid transparent;
-    z-index: 0;
 }
 .balloon-past-bottom:after{
     border-bottom: 15px solid rgb(27, 45, 54);
@@ -133,7 +133,6 @@
 .balloon-future-bottom:after{
     border-bottom: 15px solid rgb(134, 136, 137);
 }
-
 .balloon-area{
     padding: 0;
 }
@@ -165,6 +164,24 @@
 .two-lines{
     padding-top: 17px;
 }
+.overlap-1st{
+    z-index: 3;
+}
+.overlap-2nd{
+    z-index: 2;
+}
+.overlap-3rd{
+    z-index: 0;
+}
+.overlap-4th{
+    z-index: 1;
+}
+/* .overlap-opposite:hover .overlap-3rd{
+    z-index: 0 !important;
+}
+.overlap-opposite:hover .overlap-4th{
+    z-index: 1 !important;
+} */
 
 /* timeline */
 .timeline-past{
@@ -206,37 +223,93 @@
 .timeline-bottom{
     overflow: hidden;
     background-color: transparent;
+    position: relative;
 }
 
+/* pull down */
+.pulldown-title {
+	position: relative;
+}
 
-/* modal */
-.modal{
-    display: none;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    width: 100%;
+.pulldown-title:hover .pulldown-to-left{
+    width: 130px;
+    right: 130px;
+    visibility: visible;
+    opacity: 1;
 }
-.modal__bg{
-    background: rgba(0,0,0,0.8);
-    height: 100vh;
-    position: absolute;
-    width: 100%;
+.pulldown-title:hover .pulldown-to-right{
+    width: 130px;
+    left: 100px;
+    visibility: visible;
+    opacity: 1;
 }
-.modal__content{
-    background: #fff;
-    left: 50%;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    width: 60%;
+
+.pulldown-to-left{
+    opacity: 0;
+    right: 0;
+    visibility: hidden;
+	position: relative;
+    bottom: 67px;
+    border-radius: 5px;
+    height: 105px;
+    color: white;
+    width: 0px;
+    transition: .7s;
 }
-.js-modal-open{
+.pulldown-to-right{
+    opacity: 0;
+    left: 0;
+    visibility: hidden;
+	position: relative;
+    bottom: 67px;
+    border-radius: 5px;
+    height: 105px;
+    color: white;
+    width: 0px;
+    transition: .7s;
+}
+.pulldown-past{
+    background-color: rgb(84, 105, 117);
+}
+.pulldown-present{
+    background-color: rgb(144, 164, 174);
+}
+.pulldown-future{
+    background-color: rgb(189, 189, 189);
+}
+.pulldown-child{
     cursor: pointer;
+    height: 35px;
+    line-height:35px;
+    font-size: 15px;
 }
-
-
-.tooltip .arrow{
-    display: none!important;
+.pulldown-child:hover{
+    background-color: #feefab;
+    color: grey;
+}
+.balloon-past-bottom:hover{
+    background-color: rgb(84, 105, 117);
+}
+.balloon-present-bottom:hover{
+    background-color: rgb(144, 164, 174);
+}
+.balloon-future-bottom:hover{
+    background-color: rgb(189, 189, 189);
+}
+.balloon-past-bottom:hover:after, .balloon-present-bottom:hover:after, .balloon-future-bottom:hover:after{
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    margin-left: -15px;
+    border: 15px solid transparent;
+}
+.balloon-past-bottom:hover:after{
+    border-bottom: 15px solid rgb(84, 105, 117);
+}
+.balloon-present-bottom:hover:after{
+    border-bottom: 15px solid rgb(144, 164, 174);
+}
+.balloon-future-bottom:hover:after{
+    border-bottom: 15px solid rgb(189, 189, 189);
 }

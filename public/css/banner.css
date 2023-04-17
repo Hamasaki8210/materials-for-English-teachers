@@ -1,14 +1,3 @@
-
-/* .banner{
-    display: flex;
-    background-color: #001E43;
-    width: 100%;
-    height: 250px;
-    background-image: url(../images/banner-design.png);
-    background-size: 415px;
-    background-repeat: no-repeat;
-    color: white;
-} */
 .banner{
     display: flex;
     background-color: #089f9f;

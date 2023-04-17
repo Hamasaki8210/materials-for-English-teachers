@@ -46,13 +46,25 @@
                 <div class="col"></div>
                 <div class="col balloon-area-top future-perfect-progressive-area future-area-top">
                     <div class="balloon balloon-future-top three-lines">
-                        Future<br>Perfect<br>Progressive
+                        <div class="pulldown-title">Future<br>Perfect<br>Progressive
+                            <div class="pulldown-inner">
+                                <div class="pulldown-child">Stories</div>
+                                <div class="pulldown-child">Grammar Points</div>
+                                <div class="pulldown-child">Activities</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col"></div>
                 <div class="col balloon-area-top future-area-top">
                     <div class="balloon balloon-future-top two-lines">
-                        Future<br>Progressive
+                        <div class="pulldown-title">Future<br>Progressive
+                            <div class="pulldown-inner">
+                                <div class="pulldown-child">Stories</div>
+                                <div class="pulldown-child">Grammar Points</div>
+                                <div class="pulldown-child">Activities</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col"></div>
@@ -66,39 +78,75 @@
             </div>
             <div class="row timeline-bottom">
                     <div class="col"></div>
-                    <div class="col balloon-area-bottom past-perfect-area past-area-bottom">
+                    <div class="col balloon-area-bottom past-perfect-area past-area-bottom overlap-1st">
                         <div class="balloon-bottom balloon-past-bottom two-lines">
-                            Past<br>Perfect
+                            <div class="pulldown-title">Past<br>Perfect
+                                <div class="pulldown-inner pulldown-past pulldown-to-right">
+                                    <div class="pulldown-child">Stories</div>
+                                    <div class="pulldown-child">Grammar Points</div>
+                                    <div class="pulldown-child">Activities</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col"></div>
-                    <div class="col balloon-area-bottom simple-past-area  past-area-bottom">
+                    <div class="col balloon-area-bottom simple-past-area  past-area-bottom overlap-2nd">
                         <div class="balloon-bottom balloon-past-bottom two-lines">
-                            Simple<br>Past
+                            <div class="pulldown-title">Simple<br>Past
+                                <div class="pulldown-inner pulldown-past pulldown-to-right">
+                                    <div class="pulldown-child">Stories</div>
+                                    <div class="pulldown-child">Grammar Points</div>
+                                    <div class="pulldown-child">Activities</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col"></div>
-                    <div class="col balloon-area-bottom present-area-bottom">
+                    <div class="col balloon-area-bottom present-area-bottom overlap-3rd">
                         <div class="balloon-bottom balloon-present-bottom two-lines">
-                            Present<br>Perfect
+                            <div class="pulldown-title">Present<br>Perfect
+                                <div class="pulldown-inner pulldown-present pulldown-to-right">
+                                    <div class="pulldown-child">Stories</div>
+                                    <div class="pulldown-child">Grammar Points</div>
+                                    <div class="pulldown-child">Activities</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col"></div>
                     <div class="col balloon-area-bottom present-area-bottom">
-                        <div class="balloon-bottom balloon-present-bottom two-lines js-modal-open">
-                            Simple<br>Present
+                        <div class="balloon-bottom balloon-present-bottom two-lines overlap-4th">
+                            <div class="pulldown-title overlap-opposite">Simple<br>Present
+                                <div class="pulldown-inner pulldown-present pulldown-to-left">
+                                    <div class="pulldown-child">Stories</div>
+                                    <div class="pulldown-child">Grammar Points</div>
+                                    <div class="pulldown-child">Activities</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col"></div>
                     <div class="col balloon-area-bottom future-perfect-area future-area-bottom">
                         <div class="balloon-bottom balloon-future-bottom two-lines">
-                            Future<br>Perfect
+                            <div class="pulldown-title">Future<br>Perfect
+                                <div class="pulldown-inner pulldown-future pulldown-to-left">
+                                    <div class="pulldown-child">Stories</div>
+                                    <div class="pulldown-child">Grammar Points</div>
+                                    <div class="pulldown-child">Activities</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col"></div>
                     <div class="col balloon-area-bottom future-area-bottom">
                         <div class="balloon-bottom balloon-future-bottom two-lines">
-                            Simple<br>Future
+                            <div class="pulldown-title">Simple<br>Future
+                                <div class="pulldown-inner pulldown-future pulldown-to-left">
+                                    <div class="pulldown-child">Stories</div>
+                                    <div class="pulldown-child">Grammar Points</div>
+                                    <div class="pulldown-child">Activities</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -106,6 +154,7 @@
         </div>
     </div>
 </div>
+
 <div class="modal js-modal">
     <div class="modal__bg js-modal-close"></div>
     <div class="modal__content">
@@ -113,15 +162,5 @@
         <a class="js-modal-close" href="">閉じる</a>
     </div><!--modal__inner-->
 </div>
-<script type="text/javascript">
-$(function() {
-    $(document).ready(function() {
-  $('[data-toggle="tooltip"]').tooltip();
-});
-});
-</script>
-<div class="container">
-  <a href="#" data-toggle="tooltip" data-placement="top" title="Hooray!">Top</a>
-  <a href="#" data-toggle="tooltip" data-placement="right" title="Hooray!">Right</a>
-</div>
+
 @endsection
