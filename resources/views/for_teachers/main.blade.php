@@ -14,6 +14,7 @@
 </head>
 <body>
     <div>@yield('banner')</div>
+    <div>@yield('buttons')</div>
     <div>@yield('contents')</div>
 </body>
 </html>

@@ -304,7 +304,6 @@
 }
 .pulldown-child:hover{
     background-color: #feefab;
-    color: grey;
 }
 .balloon-past-bottom:hover, .balloon-past-top:hover{
     background-color: #4c5a5c;
@@ -360,4 +359,11 @@
 }
 .overlap-4th{
     z-index: 0;
+}
+.pulldown-child a{
+    text-decoration: none;
+    color: white;
+}
+.pulldown-child:hover a{
+    color: grey;
 }

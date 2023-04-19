@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,5 @@ Route::get('/for_teachers', function () {
 Route::get('/for_teachers/simple_sentences', function () {
     return view('/for_teachers/grammar/simple_sentences');
 });
+
+Route::get('/for_teachers/stories', [StoryController::class,'show']) -> name('stories');

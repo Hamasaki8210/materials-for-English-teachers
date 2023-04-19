@@ -1,8 +1,8 @@
 @extends('for_teachers.common.banner')
 @push('css')
-    <link href="{{ asset('css/common/contents.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/common/buttons.css') }}" rel="stylesheet">
 @endpush
-@section('contents')
+@section('buttons')
 <div class="tab-area">
     <div class="tab highlighted">
         <span><i class="fa-solid fa-spell-check"></i></span>
@@ -17,5 +17,5 @@
         <span>&nbsp;Business</span>
     </div>
 </div>
-<div>@yield('simple_sentences')</div>
+<div>@yield('stories')</div>
 @endsection
