@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StoryController;
+use App\Http\Controllers\PDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +27,7 @@ Route::get('/for_teachers/simple_sentences', function () {
     return view('/for_teachers/grammar/simple_sentences');
 });
 
-Route::get('/for_teachers/stories', [StoryController::class,'show']) -> name('stories');
+// Route::get('/for_teachers/stories', [StoryController::class,'show']) -> name('stories');
+// Route::get('/for_teachers/stories', [StoryController::class,'show']) -> name('stories');
+
+Route::get('pdf','App\Http\Controllers\PDFController@index');

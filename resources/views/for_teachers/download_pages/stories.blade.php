@@ -1,13 +1,14 @@
 @extends('for_teachers.download_pages.contents')
 @push('css')
-    <link href="{{ asset('css/stories.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/download_pages/stories.css') }}" rel="stylesheet">
 @endpush
 @push('js')
-    <script src="{{ asset('js/stories.js') }}" async></script>
+    <script src="{{ asset('js/menu.js') }}" async></script>
 @endpush
 @section('stories')
-<p>
-    Grammar Story Challenge
-</p>
 
+<div class="stories-page">
+    <div class="menu">test</div>
+    <div class="article">test2</div>
+</div>
 @endsection
