@@ -24,10 +24,13 @@ class PDFController extends Controller
             'えび' => '100円',
         ];
 
-        $pdf = PDF::loadView('for_teachers.grammar', compact('sushiTable'));
+        $pdf = PDF::loadView('for_teachers.test', compact('sushiTable'));
         // $pdf->setPaper('A4');
         // return $pdf->stream();
-        $pdf->setPaper('A4');
+        // $pdf->setPaper('A4');
+        // $pdf = PDF::loadHTML('<h1>Hello World</h1>');
+
+    	// return $pdf->stream();
     	return $pdf->download();
     }
 }

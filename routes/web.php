@@ -28,6 +28,6 @@ Route::get('/for_teachers/simple_sentences', function () {
 });
 
 // Route::get('/for_teachers/stories', [StoryController::class,'show']) -> name('stories');
-Route::get('/for_teachers/stories', [StoryController::class,'show']) -> name('stories');
+Route::get('/for_teachers/stories', [PDFController::class,'index']) -> name('stories');
 
 Route::get('pdf','App\Http\Controllers\PDFController@index');

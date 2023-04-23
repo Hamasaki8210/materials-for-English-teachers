@@ -1,6 +1,6 @@
 @extends('for_teachers.contents')
 @push('css')
-    <link href="{{ asset('css/grammar.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/grammar.css') }}" rel="stylesheet">
 @endpush
 @push('js')
     <script
