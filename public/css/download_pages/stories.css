@@ -1,13 +1,20 @@
-.stories-page{
+/* whole-page */
+.story-page{
+    width: 100%;
+}
+.story-page-inner{
     display: flex;
 }
+
+/* menu */
 .menu-area{
     padding: 20px 5px 0 20px;
     height: 100vh;
-    width: 350px;
-    background-color: #deebeb;
+    width: 300px;
+    min-width:300px;
+    background-color: #f4fcfc;
 }
-.article-title {
+.menu-title {
 	font-weight: bold;
 	line-height: 42px;
 	margin: 0;
@@ -16,11 +23,11 @@
 	cursor: pointer;
 	transition: 0.3s;
 }
-.article-title-pulldown-arrow.open{
+.menu-title-pulldown-arrow.open{
 	transform: rotate(-180deg);
 	transition: .5s;
 }
-.article-title-pulldown-arrow.close{
+.menu-title-pulldown-arrow.close{
 	transform: rotate(0deg);
 	transition: .5s;
 }
@@ -29,4 +36,88 @@
 }
 .pulldown-lists ul{
 	list-style-type: none;
+}
+
+/* checkbox in menu */
+input[type="checkbox"] { display: none; }
+
+input[type="checkbox"] + label {
+    display: block;
+    position: relative;
+    padding-left: 27px;
+    cursor: pointer;
+}
+  
+input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+
+input[type="checkbox"] + label:before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #089f9f;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all .12s, border-color .08s;
+}
+input[type="checkbox"]:checked + label:before {
+    width: 10px;
+    top: -5px;
+    left: 5px;
+    border-radius: 0;
+    opacity: 1;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.checkbox-lists{
+    padding: 0 0 3px 0;
+}
+
+/* content */
+.lesson-separator{
+    height: 30px;
+    width: 100%;
+    background-color: #feefab;
+}
+.indivisual-content-area{
+    padding: 10px 30px 0 40px;
+}
+.bread-crumbs{
+    display: flex;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+/* reading */
+.reading-title{
+    font-size: 30px;
+    text-align: center;
+    margin: 10px 0 10px 0;
+    font-weight: 500;
+    color: #0a9c9c;
+}
+.reading-content{
+    margin-top: 10px;
+    display: flex;
+}
+.reading-story{
+    padding: 5px 15px 15px 15px;
+    font-size: 22px;
+}
+
+/* vocabulary */
+.vocabulary{
+    margin-top: 40px;
+}
+.vocabulary-title{
+    font-size: 25px;
+    margin: 10px 0 10px 0;
+    font-weight: 500;
+    color: #0a9c9c;
+}
+.question{
+    font-size: 22px;
 }
