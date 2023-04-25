@@ -9,10 +9,20 @@
 
 <div class="stories-page">
     <div class="menu-area">
-        <div class="article-title">Tim's Busy Day</div>
-        <div class="toggle_contents">
-            <p class="toggle_title">タイトル1</p>
-            <p class="toggle_txt">ダミーテキストダミーテキストダミーテキスト</p>
+        <div class="article-title"></div>
+        <div>
+            <p class="article-title">
+                <span>Tim's Busy Day&nbsp;</span>
+                <span><i class="fa fa-light fa-angle-down article-title-pulldown-arrow"></i></span>
+            </p>
+            <div class="pulldown-lists">
+                <ul>
+                    <li><input type="radio" name="my-input">Reading</li>
+                    <li><input type="radio" name="my-input">Questions</li>
+                    <li><input type="radio" name="my-input">Practice</li>
+                    <li><input type="radio" name="my-input">Answers</li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="article">
