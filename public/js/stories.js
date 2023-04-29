@@ -12,6 +12,7 @@ $(function(){
 	});
 
 	$('#checkbox-2').click(function(){
-		$('.vocabulary').closest('div').remove();
+		$('.vocabulary').find('.vocabulary-title').remove();
+		$('.vocabulary').find('.vocabulary-content').remove();
 	});
 });

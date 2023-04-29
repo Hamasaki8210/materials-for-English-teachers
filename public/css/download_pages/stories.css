@@ -1,15 +1,19 @@
 /* whole-page */
 .story-page{
-    width: 100%;
+    background-color: grey;
+    height: 1,684px;
 }
 .story-page-inner{
     display: flex;
+    height: 1,684px;
+    width: 895px;
+    margin: auto;
 }
 
 /* menu */
 .menu-area{
     padding: 20px 5px 0 20px;
-    height: 100vh;
+    height: 1,684px;
     width: 300px;
     min-width:300px;
     background-color: #f4fcfc;
@@ -77,13 +81,20 @@ input[type="checkbox"]:checked + label:before {
 }
 
 /* content */
+.content-area{
+    background-color: white;
+}
 .lesson-separator{
     height: 30px;
     width: 100%;
     background-color: #feefab;
 }
+.page-separator{
+    height: 30px;
+    width: 100%;
+}
 .indivisual-content-area{
-    padding: 10px 30px 0 40px;
+    padding: 10px 20px 0 20px;
 }
 .bread-crumbs{
     display: flex;
@@ -105,19 +116,34 @@ input[type="checkbox"]:checked + label:before {
 }
 .reading-story{
     padding: 5px 15px 15px 15px;
-    font-size: 22px;
+    font-size: 19px;
+}
+.reading-pic{
+    width: 200px;
+    float: left;
+	margin: 0 10px 10px 0;
 }
 
 /* vocabulary */
 .vocabulary{
-    margin-top: 40px;
+    /* margin-top: px; */
+    height: 205px;
 }
-.vocabulary-title{
+.vocabulary-title, .question-title{
     font-size: 25px;
-    margin: 10px 0 10px 0;
+    padding-bottom: 10px;
     font-weight: 500;
     color: #0a9c9c;
 }
-.question{
-    font-size: 22px;
+.vocab-lists, .question{
+    font-size: 19px;
 }
+.margin-top{
+    height: 75px;
+}
+.page-num{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* questions */
