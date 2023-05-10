@@ -1,19 +1,23 @@
 /* whole-page */
+/* page-height-size */
 .story-page{
     background-color: grey;
-    height: 1,684px;
+    height: 902px;
+    padding-top: 60px;
 }
 .story-page-inner{
     display: flex;
-    height: 1,684px;
+    height: 842px;
     width: 895px;
     margin: auto;
 }
 
 /* menu */
+/* page-height-size */
 .menu-area{
     padding: 20px 5px 0 20px;
-    height: 1,684px;
+    position: fixed;
+    height: 842px;
     width: 300px;
     min-width:300px;
     background-color: #f4fcfc;
@@ -43,18 +47,18 @@
 }
 
 /* checkbox in menu */
-input[type="checkbox"] { display: none; }
+.menu-sessions { display: none; }
 
-input[type="checkbox"] + label {
+.menu-sessions + label {
     display: block;
     position: relative;
     padding-left: 27px;
     cursor: pointer;
 }
-  
-input[type="checkbox"] + label:last-child { margin-bottom: 0; }
 
-input[type="checkbox"] + label:before {
+.menu-sessions + label:last-child { margin-bottom: 0; }
+
+.menu-sessions + label:before {
     content: '';
     display: block;
     width: 20px;
@@ -65,7 +69,7 @@ input[type="checkbox"] + label:before {
     top: 0;
     transition: all .12s, border-color .08s;
 }
-input[type="checkbox"]:checked + label:before {
+.menu-sessions:checked + label:before {
     width: 10px;
     top: -5px;
     left: 5px;
@@ -76,37 +80,115 @@ input[type="checkbox"]:checked + label:before {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+.menu-session-outer{
+    width: 100px;
+    margin-left: 30px;
+}
 .checkbox-lists{
     padding: 0 0 3px 0;
+    display: flex;
 }
+
+/* slider checkbox */
+.reading-visible-area{
+    height: 27px;
+    display: flex;
+}
+.eye-icon{
+    margin: 0;
+    height: 50%;
+    padding-left: 5px;
+}
+.switch {
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    width: 38px;
+  }
+
+  .switch input {
+    display:none;
+  }
+
+  .slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+  }
+
+  .slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 15px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 15px;
+  }
+
+  input:checked + .slider {
+    background-color: #089f9f;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(15px);
+  }
+
+  .slider.round {
+    border-radius: 20px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
 
 /* content */
 .content-area{
     background-color: white;
+    overflow: scroll;
+    position: relative;
+    left: 300px;
+    width: 595px;
 }
+/* page-height-size */
 .lesson-separator{
-    height: 30px;
+    height: 20px;
     width: 100%;
     background-color: #feefab;
 }
+/* page-height-size */
 .page-separator{
-    height: 30px;
+    height: 20px;
     width: 100%;
 }
 .indivisual-content-area{
-    padding: 10px 20px 0 20px;
+    padding: 0 20px 0 20px;
 }
 .bread-crumbs{
     display: flex;
     font-size: 15px;
     margin-bottom: 10px;
 }
+/* page-height-size */
+.page{
+    height: 790px;
+}
 
 /* reading */
+/* page-height-size */
+.reading{
+    height: 550px;
+}
 .reading-title{
     font-size: 30px;
     text-align: center;
-    margin: 10px 0 10px 0;
+    padding: 10px 0 10px 0;
     font-weight: 500;
     color: #0a9c9c;
 }
@@ -124,26 +206,43 @@ input[type="checkbox"]:checked + label:before {
 	margin: 0 10px 10px 0;
 }
 
-/* vocabulary */
-.vocabulary{
-    /* margin-top: px; */
-    height: 205px;
+/* vocabulary questions practice*/
+/* page-height-size */
+.vocabulary-1{
+    height: 240px;
 }
-.vocabulary-title, .question-title{
+.vocabulary-title, .question-title, .practice-title, .answers-title{
     font-size: 25px;
     padding-bottom: 10px;
     font-weight: 500;
     color: #0a9c9c;
 }
-.vocab-lists, .question{
+.vocab-lists, .question, .practice{
     font-size: 19px;
 }
-.margin-top{
-    height: 75px;
+.question-answer, .practice-answer{
+    width: 500px;
+    height: 38px;
+    border-bottom: solid 1px black;
+    margin: 0 0 8px 18px;
 }
-.page-num{
-    text-align: center;
-    margin-bottom: 10px;
+.answer-sentence{
+    font-size: 21px;
+    padding-bottom: 10px;
+}
+.answer-num{
+    font-size: 21px;
+    height: 100%;
+    vertical-align: top;
+    padding-bottom: 10px;
+}
+.answer{
+    /* padding-bottom: 10px; */
 }
 
-/* questions */
+/* page number */
+.page-num{
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+}
