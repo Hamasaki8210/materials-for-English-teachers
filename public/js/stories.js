@@ -1,5 +1,32 @@
 $(function(){
 
+	// var readingText = $(".reading-story").text();
+	
+	// var bNum = (readingText.match( /<b>/g) || [] ).length;
+	// readingText.replaceAll('<b>','<b class="reading-vocab-1>');
+	// console.log(readingText.indexOf("<b>"));
+	// readingText.replace('<b>headed</b>',$.parseHTML('<b>headed</b>'));
+
+	// when loaded, loading page appears for a sec on content area
+	setTimeout(function() {
+		$('.indivisual-content-area').css("visibility","visible");
+		$('.loading-gif').css("display","none");
+	}, 1000);
+
+	// change the class name
+	var readingNum = $(".reading-text").length;
+	for(var i = 1; i < readingNum+1; i++){
+		var className = "reading-vocab-"+i;
+		$(".reading-text").html($(".reading-text").text().replaceAll("<b>","<b class="+className+">"));
+	}
+	$(".vocabulary-content").html($(".vocabulary-content").text());
+	// $(".question").html($(".question").text());
+	
+	// console.log((readingText.match( /<b>/g) || [] ).length);
+	// console.log(readingText.indexOf("</b>"));
+	// var textLength = readingText.indexOf("</b>") - readingText.indexOf("<b>");
+	// console.log(readingText.substr(readingText.indexOf("<b>"), textLength + 4));
+
 	// when loads page, put page num
 	$(".page-num-area").remove();
 	var pageNum = $(".page").length;

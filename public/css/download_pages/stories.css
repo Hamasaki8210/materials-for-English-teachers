@@ -2,12 +2,13 @@
 /* page-height-size */
 .story-page{
     background-color: grey;
-    height: 902px;
+    /* height: 902px; */
     padding-top: 60px;
 }
 .story-page-inner{
     display: flex;
-    height: 842px;
+    height: 100vh;
+    /* height: 842px; */
     width: 895px;
     margin: auto;
 }
@@ -17,7 +18,8 @@
 .menu-area{
     padding: 20px 5px 0 20px;
     position: fixed;
-    height: 842px;
+    height: 100vh;
+    /* height: 842px; */
     width: 300px;
     min-width:300px;
     background-color: #f4fcfc;
@@ -149,6 +151,13 @@
   }
 
 /* content */
+.loading-gif{
+    width: 100px;
+    position: relative;
+    top: 300px;
+    left: 240px;
+}
+
 .content-area{
     background-color: white;
     overflow: scroll;
@@ -168,6 +177,7 @@
     width: 100%;
 }
 .indivisual-content-area{
+    visibility: hidden;
     padding: 0 20px 0 20px;
 }
 .bread-crumbs{
@@ -220,24 +230,28 @@
 .vocab-lists, .question, .practice{
     font-size: 19px;
 }
+.practice-margin,.question-margin{
+    height: 10px;
+}
 .question-answer, .practice-answer{
     width: 500px;
     height: 38px;
     border-bottom: solid 1px black;
-    margin: 0 0 8px 18px;
 }
 .answer-sentence{
-    font-size: 21px;
+    font-size: 20px;
     padding-bottom: 10px;
 }
 .answer-num{
-    font-size: 21px;
+    font-size: 20px;
     height: 100%;
     vertical-align: top;
     padding-bottom: 10px;
 }
-.answer{
-    /* padding-bottom: 10px; */
+.practice-num,.question-num{
+    font-size: 19px;
+    height: 100%;
+    vertical-align: top;
 }
 
 /* page number */

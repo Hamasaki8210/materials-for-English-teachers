@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StoryController;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\Test;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,9 @@ Route::get('/', function () {
 Route::get('/for_teachers', function () {
     return view('/for_teachers/grammar');
 });
+
+// test
+Route::get('/test', [Test::class,'test']);
 
 Route::get('/for_teachers/simple_sentences', function () {
     return view('/for_teachers/grammar/simple_sentences');

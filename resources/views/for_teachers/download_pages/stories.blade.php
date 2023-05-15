@@ -99,28 +99,18 @@
         </div>
         <div class="content-area">
             <div class="lesson-separator"></div>
+            <img class="loading-gif" src="{{ asset('images/loading.gif') }}" alt="">
+            @foreach ($display_contents as $display_content)
             <div class="indivisual-content-area">
                 <div class="page">
                     <div class="reading">
                         <div class="reading-title">
-                            Tim's Busy Day
+                            {{$display_content['title']}}
                         </div>
                         <div class="reading-content">
                             <div class="reading-story">
                                 <img class="reading-pic" src="{{ asset('images/soccer-sample.jpg') }}" alt="">
-                                There is a boy named Tim who lives in a
-                                small <b class="reading-vocab-1">village</b>. He wakes up early every
-                                morning and goes to school. Today, he has
-                                a <b class="reading-vocab-1">science</b> test, and he feels excited about
-                                it. During the test, he carefully reads the
-                                questions and writes his answers. He
-                                finishes before everyone else and feels
-                                <b class="reading-vocab-1">confident</b> about his <b class="reading-vocab-1">performance</b>. After school, he goes to the
-                                park to play soccer with his friends. They have a lot of fun, and
-                                Tim even scores a goal! When he gets home, his mom makes his
-                                favorite dinner, spaghetti. He eats quickly because he wants to
-                                finish his homework before bedtime. Tim feels tired but happy
-                                after a <b class="reading-vocab-1">productive</b> day.
+                                <div class="reading-text">{{$display_content['reading']}}</div>
                             </div>
                         </div>
                     </div>
@@ -129,11 +119,7 @@
                             Vocabulary
                         </div>
                         <div class="vocabulary-content">
-                            <div class="vocab-lists"><span>1.&nbsp;&nbsp;</span><b>Village</b>: A small group of houses in the countryside.</div>
-                            <div class="vocab-lists"><span>2.&nbsp;&nbsp;</span><b>Confident</b>: Feeling sure or certain about something.</div>
-                            <div class="vocab-lists"><span>3.&nbsp;&nbsp;</span><b>Productive</b>: Doing things that are useful or helpful.</div>
-                            <div class="vocab-lists"><span>4.&nbsp;&nbsp;</span><b>Science</b>: The study of nature and the world around us.</div>
-                            <div class="vocab-lists"><span>5.&nbsp;&nbsp;</span><b>Performance</b>: Results.</div>
+                            {{$display_content['vocabulary']}}
                         </div>
                     </div>
                 </div>
@@ -142,76 +128,34 @@
                     <div class="question-title">
                         Questions
                     </div>
-                    <div class="question">
-                        <div class="question-sentence"><span>1.&nbsp;&nbsp;</span>What does Tim do every morning?</div>
-                        <div class="question-answer"></div>
-                    </div>
-                    <div class="question">
-                        <div class="question-sentence"><span>2.&nbsp;&nbsp;</span>How does Tim feel about his science test?</div>
-                        <div class="question-answer"></div>
-                    </div>
-                    <div class="question">
-                        <div class="question-sentence"><span>3.&nbsp;&nbsp;</span>What does Tim do during the test?</div>
-                        <div class="question-answer"></div>
-                    </div>
-                    <div class="question">
-                        <div class="question-sentence"><span>4.&nbsp;&nbsp;</span>How does Tim feel after finishing the test?</div>
-                        <div class="question-answer"></div>
-                    </div>
-                    <div class="question">
-                        <div class="question-sentence"><span>5.&nbsp;&nbsp;</span>What does Tim do after school?</div>
-                        <div class="question-answer"></div>
-                    </div>
-                    <div class="question">
-                        <div class="question-sentence"><span>6.&nbsp;&nbsp;</span>What game do Tim and his friends play at the park?</div>
-                        <div class="question-answer"></div>
-                    </div>
-                    <div class="question">
-                        <div class="question-sentence"><span>7.&nbsp;&nbsp;</span>Why does Tim eat quickly?</div>
-                        <div class="question-answer"></div>
-                    </div>
-                    <div class="question">
-                        <div class="question-sentence"><span>8.&nbsp;&nbsp;</span>How does Tim feel after finishing his homework?</div>
-                        <div class="question-answer"></div>
-                    </div>
+                    <table>
+                        <tr class="question">
+                            <td rowspan="3" class="question-num">1.&nbsp;</td><td>How was the weather when Emily woke up?</td>
+                        </tr>
+                        <tr>
+                            <td class="question-answer"></td>
+                        </tr>
+                        <tr>
+                            <td class="question-margin"></td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="page-separator"></div>
                 <div class="page">
                     <div class="practice-title">
                         Practice
                     </div>
-                    <div class="practice">
-                        <div class="practice-sentence"><span>1.&nbsp;&nbsp;</span>Do you usually wake up early in the morning like Tim?</div>
-                        <div class="practice-answer"></div>
-                    </div>
-                    <div class="practice">
-                        <div class="practice-sentence"><span>2.&nbsp;&nbsp;</span>How do you feel when you have a test at school?</div>
-                        <div class="practice-answer"></div>
-                    </div>
-                    <div class="practice">
-                        <div class="practice-sentence"><span>3.&nbsp;&nbsp;</span>Do you carefully read the practices during a test like Tim does?</div>
-                        <div class="practice-answer"></div>
-                    </div>
-                    <div class="practice">
-                        <div class="practice-sentence"><span>4.&nbsp;&nbsp;</span>How do you feel when you finish a test before everyone else?</div>
-                        <div class="practice-answer"></div>
-                    </div>
-                    <div class="practice">
-                        <div class="practice-sentence"><span>5.&nbsp;&nbsp;</span>Do you like to play sports with your friends after school like Tim does?</div>
-                        <div class="practice-answer"></div>
-                    </div>
-                    <div class="practice">
-                        <div class="practice-sentence"><span>6.&nbsp;&nbsp;</span>What is your favorite game to play with your friends?</div>
-                        <div class="practice-answer"></div>
-                    </div>
-                    <div class="practice">
-                        <div class="practice-sentence"><span>7.&nbsp;&nbsp;</span>What is your favorite food that your mom makes for dinner?</div>
-                        <div class="practice-answer"></div>
-                    </div>
-                    <div class="practice">
-                        <div class="practice-sentence"><span>8.&nbsp;&nbsp;</span>How do you feel after finishing your homework?</div>
-                        <div class="practice-answer"></div>
-                    </div>
+                    <table>
+                        <tr class="practice">
+                            <td rowspan="3" class="practice-num">1.&nbsp;</td><td>Tim wakes up early every morning and goes to school.</td>
+                        </tr>
+                        <tr>
+                            <td class="practice-answer"></td>
+                        </tr>
+                        <tr>
+                            <td class="practice-margin"></td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="page-separator"></div>
                 <div class="page">
@@ -252,6 +196,7 @@
                     </table>
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
 </div>

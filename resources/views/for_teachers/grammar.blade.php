@@ -15,7 +15,7 @@
                 <div class="col balloon-area-top past-area-top overlap-1st">
                     <div class="balloon balloon-past-top three-lines">Past<br>Perfect<br>Progressive
                         <div class="pulldown-past pulldown-to-right-threelines">
-                            <div class="pulldown-child"><a href="{{ route('stories',['category'=>'Past Perfect Progressive']) }}">Stories</a></div>
+                            <div class="pulldown-child pulldown-story"><a href="{{ route('stories',['category'=>'Past Perfect Progressive']) }}">Stories</a></div>
                             <div class="pulldown-child"><a href="">Grammar Points</a></div>
                             <div class="pulldown-child"><a href="">Activities</a></div>
                         </div>
