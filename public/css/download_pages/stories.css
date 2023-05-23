@@ -7,7 +7,7 @@
 }
 .story-page-inner{
     display: flex;
-    height: 100vh;
+    /* height: 100vh; */
     /* height: 842px; */
     width: 895px;
     margin: auto;
@@ -24,14 +24,22 @@
     min-width:300px;
     background-color: #f4fcfc;
 }
+.menu-title-area{
+    width: 100%;
+}
 .menu-title {
 	font-weight: bold;
 	line-height: 42px;
 	margin: 0;
-	padding: 0 0 0 10px;
+	padding: 0 0 0 5px;
 	position: relative;
 	cursor: pointer;
 	transition: 0.3s;
+}
+.menu-title-checkbox{
+    vertical-align: top;
+    padding-top: 11px;
+    font-weight: 500;
 }
 .menu-title-pulldown-arrow.open{
 	transform: rotate(-180deg);
@@ -41,6 +49,54 @@
 	transform: rotate(0deg);
 	transition: .5s;
 }
+.menu-icons-circle{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: white;
+    border-radius: 50%;
+    margin: 8px 10px 0 0;
+    cursor: pointer;
+    box-shadow: 5px 2px 2px rgba(115, 132, 148, 0.616);
+}
+.menu-icons-circle:hover{
+    background-color: #feefab;
+}
+.menu-icons-area{
+    display: flex;
+    position: absolute;
+    right: 29px;
+}
+.menu-tooltip{
+    visibility: hidden; /* はじめは隠しておく */
+    position: absolute; /* 絶対配置 */
+    transform: translateX(-50%); /* 親に対して中央配置 */
+    display: inline-block;
+    padding: 5px; /* 余白 */
+    white-space: nowrap; /* テキストを折り返さない */
+    font-size: 5px; /* フォントサイズ */
+    line-height: 1.3; /* 行間 */
+    background: #feefab; /* 背景色 */
+    color: black; /* 文字色 */
+    border-radius: 3px; /* 角丸 */
+}
+.tooltip-pv{
+    bottom: 43px;
+    right: 70px;
+}
+.tooltip-p{
+    bottom: 43px;
+    left: 75px;
+}
+.tooltip-w{
+    bottom: 43px;
+    left: 120px;
+}
+.menu-icons-circle:hover .menu-tooltip{
+    opacity: 1;
+    visibility: visible;
+}
 .pulldown-lists {
 	display: none;
 }
@@ -49,16 +105,16 @@
 }
 
 /* checkbox in menu */
-.menu-sessions { display: none; }
+.menu-sessions,.menu-title-sessions { display: none; }
 
-.menu-sessions + label {
+.menu-sessions + label, .menu-title-sessions+label{
     display: block;
     position: relative;
     padding-left: 27px;
     cursor: pointer;
 }
 
-.menu-sessions + label:last-child { margin-bottom: 0; }
+.menu-sessions + label:last-child, .menu-title-sessions+label:last-child { margin-bottom: 0; }
 
 .menu-sessions + label:before {
     content: '';
@@ -71,7 +127,18 @@
     top: 0;
     transition: all .12s, border-color .08s;
 }
-.menu-sessions:checked + label:before {
+.menu-title-sessions + label:before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #089f9f;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all .12s, border-color .08s;
+}
+.menu-sessions:checked + label:before,.menu-title-sessions:checked + label:before {
     width: 10px;
     top: -5px;
     left: 5px;
@@ -87,7 +154,7 @@
     margin-left: 30px;
 }
 .checkbox-lists{
-    padding: 0 0 3px 0;
+    padding: 0 3px 3px 0;
     display: flex;
 }
 
@@ -150,6 +217,7 @@
     border-radius: 50%;
   }
 
+
 /* content */
 .loading-gif{
     width: 100px;
@@ -160,7 +228,7 @@
 
 .content-area{
     background-color: white;
-    overflow: scroll;
+    /* overflow: scroll; */
     position: relative;
     left: 300px;
     width: 595px;
@@ -168,7 +236,7 @@
 /* page-height-size */
 .lesson-separator{
     height: 20px;
-    width: 100%;
+    width: 595px;
     background-color: #feefab;
 }
 /* page-height-size */
@@ -188,6 +256,7 @@
 /* page-height-size */
 .page{
     height: 790px;
+    display:block
 }
 
 /* reading */
@@ -221,7 +290,7 @@
 .vocabulary-1{
     height: 240px;
 }
-.vocabulary-title, .question-title, .practice-title, .answers-title{
+.vocabulary-title, .questions-title, .practice-title, .answers-title{
     font-size: 25px;
     padding-bottom: 10px;
     font-weight: 500;
@@ -259,4 +328,8 @@
     text-align: center;
     height: 35px;
     line-height: 35px;
+}
+
+.test2{
+    color:red;
 }
