@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\GrammarArticle;
 use PDF;
 
 class PDFController extends Controller
@@ -15,16 +16,17 @@ class PDFController extends Controller
 
     // }
     public function index() {
-        $sushiTable = [
-            'たまご' => '100円',
-            'いくら' => '200円',
-            'サーモン' => '180円',
-            'いか' => '100円',
-            'マグロ' => '110円',
-            'えび' => '100円',
-        ];
+        // $sushiTable = [
+        //     'たまご' => '100円',
+        //     'いくら' => '200円',
+        //     'サーモン' => '180円',
+        //     'いか' => '100円',
+        //     'マグロ' => '110円',
+        //     'えび' => '100円',
+        // ];
 
-        $pdf = PDF::loadView('for_teachers.test', compact('sushiTable'));
+        $grammar_article_contents = GrammarArticle::all();
+        $pdf = PDF::loadView('for_teachers.test', compact('grammar_article_contents'));
         // $pdf->setPaper('A4');
         // return $pdf->stream();
         // $pdf->setPaper('A4');
