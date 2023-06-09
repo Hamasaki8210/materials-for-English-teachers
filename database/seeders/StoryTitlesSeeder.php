@@ -15,8 +15,8 @@ class StoryTitlesSeeder extends Seeder
     public function run(): void
     {
         $params = [
-            ["title" => "Emily's Busy Day","article_no" => 1, "tense_no" => 1,"updated_at" => Carbon::now(),"created_at" => Carbon::now()],
-            ["title" => "Tim's Busy Day","article_no" => 1, "tense_no" => 1,"updated_at" => Carbon::now(),"created_at" => Carbon::now()]
+            ["title" => "Emily's Busy Day","article_id" => 1, "updated_at" => Carbon::now(),"created_at" => Carbon::now()],
+            ["title" => "Tim's Busy Day","article_id" => 2, "updated_at" => Carbon::now(),"created_at" => Carbon::now()]
         ];
 
         StoryTitle::insert($params);

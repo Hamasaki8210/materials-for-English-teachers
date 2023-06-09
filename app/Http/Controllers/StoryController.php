@@ -3,37 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\StoryTitle;
-use App\Models\StoryReading;
-use App\Models\StoryVocabulary;
-use App\Models\StoryQuestion;
-use App\Models\StoryPractice;
-use App\Models\StoryAnswer;
+use App\Models\ViewTitlesReading;
+use App\Models\ViewQuestionsAnswer;
+use App\Models\ViewVocabulary;
+use App\Models\ViewPractice;
 
 class StoryController extends Controller
 {
     public function show(){
 
-        $story_title = new StoryTitle();
+        $db_title_reading = new ViewTitlesReading();
+        $db_question_answer = new ViewQuestionsAnswer();
+        $db_vocabulary = new ViewVocabulary();
+        $db_practice = new ViewPractice();
 
-        // $db_readings = StoryReading::all();
-        // $db_vocabularies = StoryVocabulary::all();
-        // $questions = StoryQuestion::all();
-        // $practices = StoryPractice::all();
-        // $answers = StoryAnswer::all();
-        // $display_contents = [];
-        // $readings = [];
-        // $vocabularies = [];
-        // $readings = [];
-        // $readings = [];
-        // $readings = [];
-        // $readings = [];
-
-        // 
-        for($i = 1; $i <= $story_title->count(); $i++){
-            // get titles
-            $title_result = $story_title->getTitlesForStoryPage($i);
-        }
+        $db_title_reading->getViewTitlesReadings(1);
 
         // push split bold by comma into array for view
         foreach($db_readings as $db_index => $db_reading){
@@ -47,7 +31,6 @@ class StoryController extends Controller
         foreach($db_vocabularies as $db_index => $db_vocabulary){
             array_push($vocabularies, $readings_tmp);
         }
-
         dd($title_result);
 
         return view('for_teachers/download_pages/stories',[
