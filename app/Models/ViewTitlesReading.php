@@ -11,6 +11,6 @@ class ViewTitlesReading extends Model
     public function getViewTitlesReadings($id)
     {
         $results = $this->where('tense_id', $id)->get();
-        dd($results);
+        return $results;
     }
 }

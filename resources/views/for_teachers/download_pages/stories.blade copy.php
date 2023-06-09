@@ -21,7 +21,7 @@
                 </div>
             </div>
             <table>
-                @foreach ($titles as $titles_index => $title)
+                @foreach ($display_contents as $content_index => $content_value)
                 <tr class="menu-title-area">
                     <td class="menu-title-checkbox">
                         <input class="menu-title-sessions" type="checkbox" checked>
@@ -29,22 +29,22 @@
                     </td>
                     <td>
                         <p class="menu-title">
-                            <span>{{$title->title}}&nbsp;</span>
+                            <span>{{$content_value['title']}}&nbsp;</span>
                             <span><i class="fa fa-light fa-angle-down menu-title-pulldown-arrow"></i></span>
                         </p>
                         <div class="pulldown-lists">
-                        @foreach ($menus as $menu_index => $menu)
+                            @foreach ($display_menus as $menu_index => $menu_value)
                             <div class="checkbox-lists">
                                 <div>
                                     <div class="menu-session-outer">
-                                        <input class="menu-sessions" type="checkbox" id={{$menu->menu}} checked>
-                                        <label for={{$menu->menu}}>{{$menu->menu}}</label>
+                                        <input class="menu-sessions" type="checkbox" id={{mb_strtolower($menu_value->menu)."-".$content_index}} checked>
+                                        <label for={{mb_strtolower($menu_value->menu)."-".$content_index}}>{{$menu_value->menu}}</label>
                                     </div>
                                 </div>
                                 @if($menu_index === 0)
                                 <div class="reading-visible-area">
-                                    <label class="switch">
-                                        <input type="checkbox" id class="hide-switch" checked/>
+                                    <label class="switch" for={{"reading-vocab-".$content_index}}>
+                                        <input type="checkbox" id={{"reading-vocab-".$content_index}} class="hide-switch" checked/>
                                         <div class="slider round"></div>
                                     </label>
                                     <div class="eye-icon">
@@ -70,21 +70,18 @@
         </div>
         <div class="content-area">
             <img class="loading-gif" src="{{ asset('images/loading.gif') }}" alt="">
-            <div class="content-area">
-            <img class="loading-gif" src="{{ asset('images/loading.gif') }}" alt="">
-            @foreach ($titles as $article_index => $title)
+            @foreach ($display_contents as $content_value)
             <div class="lesson-separator"></div>
             <div class="indivisual-content-area">
                 <div class="page">
                     <div class="reading">
                         <div class="reading-title">
-                            {{$title->title}}
+                            {{$content_value['title']}}
                         </div>
                         <div class="reading-content">
                             <div class="reading-story">
                                 <img class="reading-pic" src="{{ asset('images/soccer-sample.jpg') }}" alt="">
-                                {{$readings[0][0]}}
-                                {{$readings[0][1]}}
+                                <div class="reading-text">{{$content_value['reading']}}</div>
                             </div>
                         </div>
                     </div>
@@ -93,14 +90,33 @@
                             Vocabulary
                         </div>
                         <div class="vocabulary-content">
+                            {{$content_value['vocabulary']}}
                         </div>
                     </div>
                 </div>
-
+                <div class="page">
+                    <div class="page-separator"></div>
+                    <div class="questions-title">
+                        Questions
+                    </div>
+                    <div class="questions-area show">{{$content_value['question']}}</div>
+                </div>
+                <div class="page">
+                    <div class="page-separator"></div>
+                    <div class="practice-title">
+                        Practice
+                    </div>
+                    <div class="practice-area show">{{$content_value['practice']}}</div>
+                </div>
+                <div class="page">
+                    <div class="page-separator"></div>
+                    <div class="answers-title">
+                        Answers
+                    </div>
+                    <div class="answers-area show">{{$content_value['answer']}}</div>
+                </div>
             </div>
             @endforeach
-        </div>
-
         </div>
     </div>
 

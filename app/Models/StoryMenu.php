@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ViewPractice extends Model
+class StoryMenu extends Model
 {
     use HasFactory;
-    public function getViewPractices($id)
+    public function getMenus()
     {
-        $results = $this->where('tense_id', $id)->get();
-        return $results;
+        return $this->all();
     }
 }
