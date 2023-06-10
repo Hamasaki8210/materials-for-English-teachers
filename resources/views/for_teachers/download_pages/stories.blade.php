@@ -83,8 +83,12 @@
                         <div class="reading-content">
                             <div class="reading-story">
                                 <img class="reading-pic" src="{{ asset('images/soccer-sample.jpg') }}" alt="">
-                                {{$readings[0][0]}}
-                                {{$readings[0][1]}}
+                                @foreach ($readings[$article_index] as $reading_index => $reading)
+                                {{$reading}}
+                                @if(isset($bolds[$article_index][$reading_index]))
+                                <b>{{$bolds[$article_index][$reading_index]}}</b>.
+                                @endif
+                                @endforeach
                             </div>
                         </div>
                     </div>

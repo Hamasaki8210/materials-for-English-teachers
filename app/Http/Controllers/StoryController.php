@@ -36,6 +36,7 @@ class StoryController extends Controller
             array_push($display_bolds, $split_bolds);
         }
 
+        // dd($display_sentences);
         // return view('for_teachers/download_pages/stories',[
         //     'menus'=>$display_menus,
         //     'titles'=>$target_db_titles_readings,
@@ -48,6 +49,7 @@ class StoryController extends Controller
         return view('for_teachers/download_pages/stories')
         ->with('menus',$display_menus)
         ->with('titles',$target_db_titles_readings)
-        ->with('readings',$display_sentences);
+        ->with('readings',$display_sentences)
+        ->with('bolds',$display_bolds);
     }
 }
