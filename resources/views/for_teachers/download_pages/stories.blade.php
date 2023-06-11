@@ -86,7 +86,11 @@
                                 @foreach ($readings[$article_index] as $reading_index => $reading)
                                 {{$reading}}
                                 @if(isset($bolds[$article_index][$reading_index]))
-                                <b>{{$bolds[$article_index][$reading_index]}}</b>.
+                                    @if(false !== strpos($bolds[$article_index][$reading_index], '*'))
+                                    <b>{{str_replace('*','',$bolds[$article_index][$reading_index])}}</b>.
+                                    @else
+                                    <b>{{$bolds[$article_index][$reading_index]}}</b>
+                                    @endif
                                 @endif
                                 @endforeach
                             </div>
