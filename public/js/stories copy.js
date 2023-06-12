@@ -100,6 +100,22 @@ $(function(){
 
 	// change text to dom of database data
 	function changeTextToDom(){
+		// reading
+		var readingClassNum = $(".reading-text").length;
+		for(var i = 0; i < readingClassNum; i++){
+			// add class name
+			var readingText = $(".reading-text").eq(i).text();
+			var readingClassName = "reading-" + i;
+			var readingClassNameDot = "." + readingClassName;
+			$(".reading-text").eq(i).addClass(readingClassName);
+			// replace <b> to <b class="reading-vocab-[number]">
+			var readingVocabClassName = "reading-vocab-" + i;
+			var readingVocabClassNameTag = "<b class='" + readingVocabClassName + "'>";
+			var displayReading = readingText.replaceAll("<b>", readingVocabClassNameTag);
+			$(readingClassNameDot).text(displayReading)
+			// change text to dom
+			$(readingClassNameDot).html($(readingClassNameDot).text());
+		}
 		// vocabulary
 		var vocabClassNum = $(".vocabulary-content").length;
 		for(var i = 0; i < vocabClassNum; i++){

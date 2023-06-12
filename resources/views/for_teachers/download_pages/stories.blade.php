@@ -37,14 +37,14 @@
                             <div class="checkbox-lists">
                                 <div>
                                     <div class="menu-session-outer">
-                                        <input class="menu-sessions" type="checkbox" id={{$menu->menu}} checked>
-                                        <label for={{$menu->menu}}>{{$menu->menu}}</label>
+                                        <input class="menu-sessions" type="checkbox" id={{$menu->menu."-".$titles_index}} checked>
+                                        <label for={{$menu->menu."-".$titles_index}}>{{$menu->menu}}</label>
                                     </div>
                                 </div>
                                 @if($menu_index === 0)
                                 <div class="reading-visible-area">
-                                    <label class="switch">
-                                        <input type="checkbox" id class="hide-switch" checked/>
+                                    <label class="switch" for="{{'reading-vocab-'.$titles_index}}">
+                                        <input type="checkbox" id="{{'reading-vocab-'.$titles_index}}" class="hide-switch" checked/>
                                         <div class="slider round"></div>
                                     </label>
                                     <div class="eye-icon">
@@ -87,9 +87,9 @@
                                 {{$reading}}
                                 @if(isset($bolds[$article_index][$reading_index]))
                                     @if(false !== strpos($bolds[$article_index][$reading_index], '*'))
-                                    <b>{{str_replace('*','',$bolds[$article_index][$reading_index])}}</b>.
+                                    <span><b class={{"reading-vocab-".$article_index}}>{{str_replace('*','',$bolds[$article_index][$reading_index])}}</b></span>.
                                     @else
-                                    <b>{{$bolds[$article_index][$reading_index]}}</b>
+                                    <span><b class={{"reading-vocab-".$article_index}}>{{$bolds[$article_index][$reading_index]}}</b></span>
                                     @endif
                                 @endif
                                 @endforeach
@@ -98,9 +98,25 @@
                     </div>
                     <div class="show">
                         <div class="vocabulary-title">
-                            Vocabulary
+                            {{ucfirst($menus[1]->menu)}}
                         </div>
-                        <div class="vocabulary-content">
+                        <div class={{"vocabulary-content-".$article_index}}>
+                            {{-- display number for vocabularies --}}
+                            @php
+                                $vocabulary_index = 1;
+                            @endphp
+                            @foreach($vocabularies as $vocabulary)
+                                @if($vocabulary->article_id == intval($article_index)+1)
+                                <div class="vocab-lists"><span>{{$vocabulary_index}}.&nbsp;&nbsp;</span><b>{{$vocabulary->vocabulary}}</b></div>
+                                    @php
+                                        $vocabulary_index++;
+                                    @endphp
+                                @else
+                                    @php
+                                        $vocabulary_index = 1;
+                                    @endphp
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                 </div>

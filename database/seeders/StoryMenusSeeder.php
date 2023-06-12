@@ -4,10 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\StoryMenu;
-use Carbon\Carbon;
 
-class StoryMenuSeeder extends Seeder
+class StoryMenusSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -22,6 +20,6 @@ class StoryMenuSeeder extends Seeder
             ["menu" => "answer", "updated_at" => Carbon::now(),"created_at" => Carbon::now()]
         ];
 
-        StoryMenu::insert($params);
+        StoryMenus::insert($params);
     }
 }

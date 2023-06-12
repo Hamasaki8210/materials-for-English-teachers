@@ -50,6 +50,7 @@ class StoryController extends Controller
         ->with('menus',$display_menus)
         ->with('titles',$target_db_titles_readings)
         ->with('readings',$display_sentences)
-        ->with('bolds',$display_bolds);
+        ->with('bolds',$display_bolds)
+        ->with('vocabularies',$display_vocabularies);
     }
 }
