@@ -101,20 +101,9 @@
                             {{ucfirst($menus[1]->menu)}}
                         </div>
                         <div class={{"vocabulary-content-".$article_index}}>
-                            {{-- display number for vocabularies --}}
-                            @php
-                                $vocabulary_index = 1;
-                            @endphp
                             @foreach($vocabularies as $vocabulary)
                                 @if($vocabulary->article_id == intval($article_index)+1)
-                                <div class="vocab-lists"><span>{{$vocabulary_index}}.&nbsp;&nbsp;</span><b>{{$vocabulary->vocabulary}}</b></div>
-                                    @php
-                                        $vocabulary_index++;
-                                    @endphp
-                                @else
-                                    @php
-                                        $vocabulary_index = 1;
-                                    @endphp
+                                <div class="vocab-lists"><span>{{$vocabulary->vocabulary_id}}.&nbsp;&nbsp;</span><b>{{$vocabulary->vocabulary}}</b></div>
                                 @endif
                             @endforeach
                         </div>
