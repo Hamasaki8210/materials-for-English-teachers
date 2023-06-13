@@ -83,6 +83,7 @@
                                 <img class="reading-pic" src="{{ asset('images/soccer-sample.jpg') }}" alt="">
                                 @foreach ($readings[$article_index] as $reading_index => $reading)
                                 {{$reading}}
+                                {{-- display values for each article --}}
                                 @if(isset($bolds[$article_index][$reading_index]))
                                     @if(false !== strpos($bolds[$article_index][$reading_index], '*'))
                                     <span><b class={{"reading-vocab-".$article_index}}>{{str_replace('*','',$bolds[$article_index][$reading_index])}}</b></span>.
@@ -107,7 +108,54 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="page">
+                    <div class="page-separator"></div>
+                    <div class="questions-title">
+                        {{ucfirst($menus[2]->menu)}}
+                    </div>
+                    <div class="questions-area show">
+                        <table>
+                            @foreach($qas as $qa)
+                                @if($qa->article_id == intval($article_index)+1)
+                                <tr class="question">
+                                    <td rowspan="3" class="question-num">
+                                    {{$qa->question_id}}.&nbsp;
+                                    </td>
+                                    <td>
+                                    {{$qa->question}}
+                                    </td>
+                                <tr>
+                                <tr><td class="question-answer"></td></tr>
+                                <tr><td class="question-margin"></td></tr>
+                                @endif
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+                <div class="page">
+                    <div class="page-separator"></div>
+                    <div class="practice-title">
+                        {{ucfirst($menus[3]->menu)}}
+                    </div>
+                    <div class="practice-area show">
+                        <table>
+                            @foreach($practices as $practice)
+                                @if($practice->article_id == intval($article_index)+1)
+                                <tr class="practice">
+                                    <td rowspan="3" class="practice-num">
+                                    {{$practice->practice_id}}.&nbsp;
+                                    </td>
+                                    <td>
+                                    {{$practice->practice}}
+                                    </td>
+                                <tr>
+                                <tr><td class="practice-answer"></td></tr>
+                                <tr><td class="practice-margin"></td></tr>
+                                @endif
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
             </div>
             @endforeach
 

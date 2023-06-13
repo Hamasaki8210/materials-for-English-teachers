@@ -119,13 +119,13 @@ $(function(){
 		// 	$(questionClassNameDot).html($(questionClassNameDot).text());
 		// }
 		// practice
-		// var practiceClassNum = $(".practice-area").length;
-		// for(var i = 0; i < practiceClassNum; i++){
-		// 	var practiceClassName = "practice-" + i;
-		// 	var practiceClassNameDot = "." + practiceClassName;
-		// 	$(".practice-area").eq(i).addClass(practiceClassName);
-		// 	$(practiceClassNameDot).html($(practiceClassNameDot).text());
-		// }
+		var practiceClassNum = $(".practice-area").length;
+		for(var i = 0; i < practiceClassNum; i++){
+			var practiceClassName = "practice-" + i;
+			var practiceClassNameDot = "." + practiceClassName;
+			$(".practice-area").eq(i).addClass(practiceClassName);
+			$(practiceClassNameDot).html($(practiceClassNameDot).text());
+		}
 		// answer
 		var answerClassNum = $(".answers-area").length;
 		for(var i = 0; i < answerClassNum; i++){
