@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(StoryAnswersSeeder::class);
         $this->call(GrammarTensesSeeder::class);
         $this->call(StoryArticlesSeeder::class);
-        $this->call(StoryMenuSeeder::class);
+        $this->call(StoryMenusSeeder::class);
 
     }
 }

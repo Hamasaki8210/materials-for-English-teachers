@@ -229,9 +229,9 @@
 .content-area{
     background-color: white;
     /* overflow: scroll; */
-    position: relative;
     left: 300px;
     width: 595px;
+    position: relative;
 }
 /* page-height-size */
 .lesson-separator{

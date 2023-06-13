@@ -70,8 +70,6 @@
         </div>
         <div class="content-area">
             <img class="loading-gif" src="{{ asset('images/loading.gif') }}" alt="">
-            <div class="content-area">
-            <img class="loading-gif" src="{{ asset('images/loading.gif') }}" alt="">
             @foreach ($titles as $article_index => $title)
             <div class="lesson-separator"></div>
             <div class="indivisual-content-area">
@@ -103,7 +101,7 @@
                         <div class={{"vocabulary-content-".$article_index}}>
                             @foreach($vocabularies as $vocabulary)
                                 @if($vocabulary->article_id == intval($article_index)+1)
-                                <div class="vocab-lists"><span>{{$vocabulary->vocabulary_id}}.&nbsp;&nbsp;</span><b>{{$vocabulary->vocabulary}}</b></div>
+                                <div class="vocab-lists"><span>{{$vocabulary->vocabulary_id}}.&nbsp;&nbsp;</span><b>{{$vocabulary->vocabulary}}</b>&nbsp;:&nbsp;{{$vocabulary->meaning}}</div>
                                 @endif
                             @endforeach
                         </div>
@@ -112,7 +110,6 @@
 
             </div>
             @endforeach
-        </div>
 
         </div>
     </div>
