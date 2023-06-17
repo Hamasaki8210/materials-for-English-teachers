@@ -31,7 +31,7 @@ $(function(){
 	// when clicking checkbox, session dissapears or appears
 	$('.menu-sessions').click(function(){
 		var idNameDot = "." + $(this).attr("id");
-		var vocabPart = ($(idNameDot).children('.vocabulary-title').text()!="") ? true : false;
+		var vocabPart = ($(idNameDot).children('.vocabularies-title').text()!="") ? true : false;
 		// vocab part
 		if(vocabPart){
 			// if showing, hide or show

@@ -37,4 +37,4 @@ Route::get('/for_teachers/stories', [StoryController::class,'show']) -> name('st
 Route::get('pdf','App\Http\Controllers\PDFController@index');
 
 
-Route::get('/for_teachers/test2', 'App\Http\Controllers\Test@index');
+Route::get('/for_teachers/test2', 'App\Http\Controllers\PDFController@downloadPDF');

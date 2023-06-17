@@ -13,12 +13,16 @@ class Test extends Controller
 
         
         // return response(\Illuminate\Http\Response::HTTP_OK);
-        $pdf = PDF::loadView('for_teachers.test');
+        // $pdf = PDF::loadView('for_teachers/test');
+        
         // $pdf->setPaper('A4');
         // return $pdf->stream();
         // $pdf->setPaper('A4');
         // $pdf = PDF::loadHTML('<h1>Hello World</h1>');
-
-    	return $pdf->stream();
+        // $fileName =  'download.pdf';
+        // $pdf->save(public_path() . "/" . $fileName);
+        
+        // $pdf = public_path($fileName);
+        // return response()->download($pdf);
     }
 }

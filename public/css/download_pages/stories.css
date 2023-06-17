@@ -287,14 +287,35 @@
 
 /* vocabulary questions practice*/
 /* page-height-size */
-.vocabulary-1{
-    height: 240px;
+/* .title-area{
+    width: 100%;
+    justify-content: space-between;
+} */
+.article-title{
+    color: rgb(228, 228, 223);
+    height: 36px;
+    line-height: 36px;
+    text-align: right;
+    display: block;
 }
-.vocabulary-title, .questions-title, .practice-title, .answers-title{
+.questions-title, .practice-title, .answers-title{
     font-size: 25px;
-    padding-bottom: 10px;
     font-weight: 500;
     color: #0a9c9c;
+}
+/* page-height-size */
+.vocabulary-area{
+    height: 240px;
+    padding-top: 10px;
+}
+.vocabulary-title{
+    font-size: 25px;
+    font-weight: 500;
+    color: #0a9c9c;
+    margin-top: 10px;
+}
+.answers-area{
+    margin-top: 10px;
 }
 .vocab-lists, .question, .practice{
     font-size: 19px;
@@ -328,12 +349,4 @@
     text-align: center;
     height: 35px;
     line-height: 35px;
-}
-
-.test2{
-    color:red;
-}
-
-.testborder{
-    border-bottom: solid 1px;
 }

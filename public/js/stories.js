@@ -9,9 +9,6 @@ $(function(){
 		$('.loading-gif').css("display","none");
 	}, 1000);
 
-	// when loading page, make dom and add class name
-	changeTextToDom();
-
 	// when loading page, put page num
 	changePageNums();
 
@@ -30,23 +27,84 @@ $(function(){
 
 	// when clicking checkbox, session dissapears or appears
 	$('.menu-sessions').click(function(){
-		var idNameDot = "." + $(this).attr("id");
-		var vocabPart = ($(idNameDot).children('.vocabulary-title').text()!="") ? true : false;
+		var idName = $(this).attr("id");
+		var idNameDot = "." + idName;
+		// variable for the check whether reading or vocabulary title exists
+		var vocabPart = ($(idNameDot).find('.vocabulary-title').text()!="") ? true : false;
+		var readingPart = ($(idNameDot).find('.reading-title').text()!="") ? true : false;
 		// vocab part
-		if(vocabPart){
-			// if showing, hide or show
-			if($(idNameDot).attr("class").indexOf("show")!=-1){
-				$(idNameDot).children('.vocabulary-title').css('visibility','hidden');
-				$(idNameDot).children('.vocabulary-content').css('visibility','hidden');
-				$(idNameDot).addClass("hide");
-				$(idNameDot).removeClass("show");
-			}else{
-				$(idNameDot).children('.vocabulary-title').css('visibility','visible');
-				$(idNameDot).children('.vocabulary-content').css('visibility','visible');
-				$(idNameDot).addClass("show");
-				$(idNameDot).removeClass("hide");
+		if(vocabPart || readingPart){
+			// retrieve before and after "-"
+			var sessionName = idName.match(/(.*?)-/)[1];
+			var articleNum = idName.match(/-(.*)/)[1];
+			var readingClassName = ".reading-" + articleNum;
+			var vocabularyClassName = ".vocabulary-" + articleNum;
+			var sessionAreaClassName = "." + sessionName + "-area";
+			// if the operated checkbox is reading part
+			if(sessionName === "reading"){
+				if($(vocabularyClassName).attr("class").indexOf("show")!=-1){
+					// if vocab visible and reading hiding, display none
+					if($(idNameDot).attr("class").indexOf("show")!=-1){
+						$(idNameDot).css('display','none');
+						$(idNameDot).addClass("hide");
+						$(idNameDot).removeClass("show");
+					// if vocab part visible and reading showing, display block
+					}else{
+						$(idNameDot).css('display','block');
+						$(idNameDot).addClass("show");
+						$(idNameDot).removeClass("hide");
+					}
+				}else if($(vocabularyClassName).attr("class").indexOf("hide")!=-1){
+					// if vocab invisible and reading hiding, display none  
+					if($(idNameDot).attr("class").indexOf("show")!=-1){
+						$(idNameDot).css('display','none');
+						$(idNameDot).addClass("hide");
+						$(idNameDot).removeClass("show");
+						// the page hides
+						$(idNameDot).parent().css('display','none');
+					// if vocab invisible and reading showing, display block 
+					}else{
+						// if both reading and vocab are not showing, show the page first
+						if($(idNameDot).parent().css('display') === "none"){
+							$(idNameDot).parent().css('display','block');
+						}
+						$(idNameDot).css('display','block');
+						$(idNameDot).addClass("show");
+						$(idNameDot).removeClass("hide");
+					}
+				}
+			// if the operated checkbox is vocab part
+			}else if(sessionName === "vocabulary"){
+				// if reading part visible, the frame of vocab remains
+				if($(readingClassName).attr("class").indexOf("show")!=-1){
+					if($(idNameDot).attr("class").indexOf("show")!=-1){
+						$(idNameDot).find(sessionAreaClassName).css('visibility','hidden');
+						$(idNameDot).addClass("hide");
+						$(idNameDot).removeClass("show");
+					}else{
+						$(idNameDot).find(sessionAreaClassName).css('visibility','visible');
+						$(idNameDot).addClass("show");
+						$(idNameDot).removeClass("hide");
+					}
+				}else if($(readingClassName).attr("class").indexOf("hide")!=-1){
+					if($(idNameDot).attr("class").indexOf("show")!=-1){
+						$(idNameDot).find(sessionAreaClassName).css('visibility','hidden');
+						$(idNameDot).addClass("hide");
+						$(idNameDot).removeClass("show");
+						// the page hides
+						$(idNameDot).parent().css('display','none');
+					}else{
+						// if both reading and vocab are not showing, show the page first
+						if($(idNameDot).parent().css('display') === "none"){
+							$(idNameDot).parent().css('display','block');
+						}
+						$(idNameDot).find(sessionAreaClassName).css('visibility','visible');
+						$(idNameDot).addClass("show");
+						$(idNameDot).removeClass("hide");
+					}
+				}
 			}
-		// questions, practice, answers
+		// when questions, practice, answers, hide or show whole page
 		}else{
 			if($(idNameDot).attr("class").indexOf("show")!=-1){
 				$(idNameDot).parent().css('display','none');
@@ -97,76 +155,46 @@ $(function(){
 			$(".practice-sentence").eq(i).css('font-size','18px');
 		}
 	}
-
-	// change text to dom of database data
-	function changeTextToDom(){
-		// vocabulary
-		// var vocabClassNum = $(".vocabulary-content").length;
-		// for(var i = 0; i < vocabClassNum; i++){
-		// 	var vocabClassName = "vocabulary-content-" + i;
-		// 	var vocabClassNameDot = "." + vocabClassName;
-		// 	var parentVocabClassName = "vocabulary-" + i;
-		// 	$(".vocabulary-content").eq(i).addClass(vocabClassName);
-		// 	$(vocabClassNameDot).html($(vocabClassNameDot).text());
-		// 	$(".vocabulary-content").eq(i).parent("div").addClass(parentVocabClassName);
-		// }
-		// question
-		// var questionClassNum = $(".questions-area").length;
-		// for(var i = 0; i < questionClassNum; i++){
-		// 	var questionClassName = "questions-" + i;
-		// 	var questionClassNameDot = "." + questionClassName;
-		// 	$(".questions-area").eq(i).addClass(questionClassName);
-		// 	$(questionClassNameDot).html($(questionClassNameDot).text());
-		// }
-		// practice
-		// var practiceClassNum = $(".practice-area").length;
-		// for(var i = 0; i < practiceClassNum; i++){
-		// 	var practiceClassName = "practice-" + i;
-		// 	var practiceClassNameDot = "." + practiceClassName;
-		// 	$(".practice-area").eq(i).addClass(practiceClassName);
-		// 	$(practiceClassNameDot).html($(practiceClassNameDot).text());
-		// }
-		// answer
-		var answerClassNum = $(".answers-area").length;
-		for(var i = 0; i < answerClassNum; i++){
-			var answerClassName = "answers-" + i;
-			var answerClassNameDot = "." + answerClassName;
-			$(".answers-area").eq(i).addClass(answerClassName);
-			$(answerClassNameDot).html($(answerClassNameDot).text());
-		}
-	}
-
-	function changePageNums(){
-		$(".page-num-area").remove();
-		var pageNum = $('.page').length;
-		var appendPageNum = 1;
-		for(var i = 0; i < pageNum; i++){
-			if($('.page').eq(i).css('display') === 'block'){
-				var targetAppendElem = $(".page").eq(i);
-				var appendNode = '<div class="page-num-area"><div class="page-num">' + appendPageNum + '</div></div>';
-				targetAppendElem.after(appendNode);
-				appendPageNum++;
-			}
-		}
-	}
 });
 
+function changePageNums(){
+	$(".page-num-area").remove();
+	var pageNum = $('.page').length;
+	var appendPageNum = 1;
+	for(var i = 0; i < pageNum; i++){
+		if($('.page').eq(i).css('display') === 'block'){
+			var targetAppendElem = $(".page").eq(i);
+			var appendNode = '<div class="page-num-area"><div class="page-num">' + appendPageNum + '</div></div>';
+			targetAppendElem.after(appendNode);
+			appendPageNum++;
+		}
+	}
+};
 
-// $(function(){
-//     $('.button').click(function() {
-//         var id = 1;
-//         $.ajax({
-//             headers: {
-//                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//                 },
-//             type:'GET',
-//             url:'/for_teachers/test2',
-//             dataType: 'json',
-//         }).done(function (results){
-// 			console.log("OK");
-//         }).fail(function(jqXHR, textStatus, errorThrown){
-// 			console.log("NG");
-//         }).always(function() {
-//         });
-//     })
-// });
+$(function(){
+    $('.pdf-icon').click(function() {
+		var data = '';
+        $.ajax({
+			
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+            type:'GET',
+            url:'/for_teachers/test2',
+			data: data,
+            xhrFields: {
+                responseType: 'blob'
+            },
+            success: function(response){
+                var blob = new Blob([response]);
+                var link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = "techsolutionstuff.pdf";
+                link.click();
+            },
+            error: function(blob){
+                console.log(blob);
+            }
+        });
+    })
+});

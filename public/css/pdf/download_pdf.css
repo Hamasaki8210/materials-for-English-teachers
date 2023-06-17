@@ -1,0 +1,105 @@
+/* content */
+.content-area{
+    width: 595px;
+}
+/* page-height-size */
+.lesson-separator{
+    height: 20px;
+    width: 595px;
+    background-color: #feefab;
+}
+.page-separator{
+    height: 20px;
+    width: 100%;
+}
+/* page-height-size */
+.page{
+    height: 790px;
+    display:block
+}
+
+/* reading */
+/* page-height-size */
+.reading{
+    height: 550px;
+}
+.reading-title{
+    font-size: 30px;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    font-weight: 500;
+    color: #0a9c9c;
+}
+.reading-content{
+    margin-top: 10px;
+    display: flex;
+}
+.reading-story{
+    padding: 5px 15px 15px 15px;
+    font-size: 19px;
+}
+
+/* vocabulary questions practice*/
+/* page-height-size */
+.article-title{
+    color: rgb(228, 228, 223);
+    height: 36px;
+    line-height: 36px;
+    width: 595px;
+    text-align: right;
+}
+.title-part{
+    /* width: 595px;
+    justify-content: space-between; */
+}
+.questions-title, .practice-title, .answers-title{
+    font-size: 25px;
+    font-weight: 500;
+    color: #0a9c9c;
+}
+/* page-height-size */
+.vocabulary-area{
+    height: 240px;
+    padding-top: 10px;
+}
+.vocabulary-title{
+    font-size: 25px;
+    font-weight: 500;
+    color: #0a9c9c;
+    margin-top: 10px;
+}
+.answers-area{
+    margin-top: 10px;
+}
+.vocab-lists, .question, .practice{
+    font-size: 19px;
+}
+.practice-margin,.question-margin{
+    height: 10px;
+}
+.question-answer, .practice-answer{
+    width: 500px;
+    height: 38px;
+    border-bottom: solid 1px black;
+}
+.answer-sentence{
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+.answer-num{
+    font-size: 20px;
+    vertical-align: top;
+    padding-bottom: 10px;
+}
+.practice-num,.question-num{
+    font-size: 19px;
+    /* height: 100%; */
+    vertical-align: top;
+}
+
+/* page number */
+.page-num{
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+}
