@@ -53,7 +53,7 @@
                                 </div>
                                 @endif
                             </div>
-                            @endforeach
+                        @endforeach
                         </div>
                     </td>
                 </tr>
@@ -61,9 +61,9 @@
                 <tr>
                     <td></td>
                     <td class="menu-icons-area">
-                        <div class="menu-icons-circle preview-icon"><i class="fa-solid fa-file-lines fa-lg"><span class="menu-tooltip tooltip-pv">Preview</span></i></div>
-                        <div class="menu-icons-circle pdf-icon"><i class="fa-solid fa-file-pdf fa-lg"><span class="menu-tooltip tooltip-p">Download PDF</span></i></i></div>
-                        <div class="menu-icons-circle word-icon"><i class="fa-solid fa-file-word fa-lg"><span class="menu-tooltip tooltip-w">Download Word</span></i></i></div>
+                        <div class="menu-icons-circle pv-icon pdf-icon"><i class="fa-solid fa-file-lines fa-lg"><span class="menu-tooltip tooltip-pv">Preview</span></i></div>
+                        <div class="menu-icons-circle pdf-dl-icon pdf-icon"><i class="fa-solid fa-file-pdf fa-lg"><span class="menu-tooltip tooltip-p">Download PDF</span></i></i></div>
+                        <div class="menu-icons-circle word-dl-icon pdf-icon"><i class="fa-solid fa-file-word fa-lg"><span class="menu-tooltip tooltip-w">Download Word</span></i></i></div>
                     </td>
                 </tr>
             </table>
@@ -74,32 +74,35 @@
             <div class="lesson-separator"></div>
             <div class="indivisual-content-area">
                 <div class="page">
-                    <div class="reading">
-                        <div class="reading-title">
-                            {{$title->title}}
-                        </div>
-                        <div class="reading-content">
-                            <div class="reading-story">
-                                <img class="reading-pic" src="{{ asset('images/soccer-sample.jpg') }}" alt="">
-                                @foreach ($readings[$article_index] as $reading_index => $reading)
-                                {{$reading}}
-                                {{-- display values for each article --}}
-                                @if(isset($bolds[$article_index][$reading_index]))
-                                    @if(false !== strpos($bolds[$article_index][$reading_index], '*'))
-                                    <span><b class={{"reading-vocab-".$article_index}}>{{str_replace('*','',$bolds[$article_index][$reading_index])}}</b></span>.
-                                    @else
-                                    <span><b class={{"reading-vocab-".$article_index}}>{{$bolds[$article_index][$reading_index]}}</b></span>
+                    <div class="reading reading-{{$article_index}} show">
+                        <div class="reading-area">
+                            <div class="reading-title">
+                                {{$title->title}}
+                            </div>
+                            <div class="reading-content">
+                                <div class="reading-story">
+                                    <img class="reading-pic" src="{{ asset('images/soccer-sample.jpg') }}" alt="">
+                                    @foreach ($readings[$article_index] as $reading_index => $reading)
+                                    {{$reading}}
+                                    {{-- display values for each article --}}
+                                    @if(isset($bolds[$article_index][$reading_index]))
+                                        @if(false !== strpos($bolds[$article_index][$reading_index], '*'))
+                                        <span><b class={{"reading-vocab-".$article_index}}>{{str_replace('*','',$bolds[$article_index][$reading_index])}}</b></span>.
+                                        @else
+                                        <span><b class={{"reading-vocab-".$article_index}}>{{$bolds[$article_index][$reading_index]}}</b></span>
+                                        @endif
                                     @endif
-                                @endif
-                                @endforeach
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="show">
-                        <div class="vocabulary-title">
-                            {{ucfirst($menus[1]->menu)}}
-                        </div>
-                        <div class={{"vocabulary-content-".$article_index}}>
+                    <div class="vocabulary-{{$article_index}} show">
+                        <div class="vocabulary-area">
+                            <div class="title-area">
+                                <span class="vocabulary-title">{{ucfirst($menus[1]->menu)}}</span>
+                                <span class="article-title">{{$titles[$article_index]->title}}</span>
+                            </div>
                             @foreach($vocabularies as $vocabulary)
                                 @if($vocabulary->article_id == intval($article_index)+1)
                                 <div class="vocab-lists"><span>{{$vocabulary->vocabulary_id}}.&nbsp;&nbsp;</span><b>{{$vocabulary->vocabulary}}</b>&nbsp;:&nbsp;{{$vocabulary->meaning}}</div>
@@ -110,10 +113,11 @@
                 </div>
                 <div class="page">
                     <div class="page-separator"></div>
-                    <div class="questions-title">
-                        {{ucfirst($menus[2]->menu)}}
+                    <div>
+                        <span class="questions-title">{{ucfirst($menus[2]->menu)}}</span>
+                        <span class="article-title">{{$titles[$article_index]->title}}</span>
                     </div>
-                    <div class="questions-area show">
+                    <div class="question-{{$article_index}} show">
                         <table>
                             @foreach($qas as $qa)
                                 @if($qa->article_id == intval($article_index)+1)
@@ -134,10 +138,11 @@
                 </div>
                 <div class="page">
                     <div class="page-separator"></div>
-                    <div class="practice-title">
-                        {{ucfirst($menus[3]->menu)}}
+                    <div>
+                        <span class="practice-title">{{ucfirst($menus[3]->menu)}}</span>
+                        <span class="article-title">{{$titles[$article_index]->title}}</span>
                     </div>
-                    <div class="practice-area show">
+                    <div class="practice-{{$article_index}} show">
                         <table>
                             @foreach($practices as $practice)
                                 @if($practice->article_id == intval($article_index)+1)
@@ -151,6 +156,29 @@
                                 <tr>
                                 <tr><td class="practice-answer"></td></tr>
                                 <tr><td class="practice-margin"></td></tr>
+                                @endif
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+                <div class="page">
+                    <div class="page-separator"></div>
+                    <div>
+                        <span class="answers-title">{{ucfirst($menus[4]->menu)}}</span>
+                        <span class="article-title">{{$titles[$article_index]->title}}</span>
+                    </div>
+                    <div class="answer-{{$article_index}} show">
+                        <table>
+                            @foreach($qas as $qa)
+                                @if($qa->article_id == intval($article_index)+1)
+                                <tr class="answer">
+                                    <td class="answer-num">
+                                    {{$qa->question_id}}.&nbsp;&nbsp;
+                                    </td>
+                                    <td class="answer-sentence">
+                                    {{$qa->answer}}
+                                    </td>
+                                <tr>
                                 @endif
                             @endforeach
                         </table>
