@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="{{ public_path('/css/pdf/download_pdf.css')  }}">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="{{ public_path('/js/pdf/download_pdf.js') }}" async></script>
     </head>
     <body>
         <div class="content-area">
@@ -33,9 +35,9 @@
                     </div>
                     <div>
                         <div class="vocabulary-area">
-                            <div class="title-part">
-                                <span class="vocabulary-title">{{ucfirst($menus[1]->menu)}}</span>
-                                <span class="article-title">{{$titles[$article_index]->title}}</span>
+                            <div class="title-area">
+                                <span class="vocabulary-title" id="test">{{ucfirst($menus[1]->menu)}}</span>
+                                <span class="vocabulary-article-title">{{$titles[$article_index]->title}}</span>
                             </div>
                             @foreach($vocabularies as $vocabulary)
                                 @if($vocabulary->article_id == intval($article_index)+1)
@@ -48,7 +50,7 @@
                 <div class="page-num"></div>
                 <div class="page">
                     <div class="page-separator"></div>
-                    <div class="title-part">
+                    <div class="title-area">
                         <span class="questions-title">{{ucfirst($menus[2]->menu)}}</span>
                         <span class="article-title">{{$titles[$article_index]->title}}</span>
                     </div>
@@ -74,7 +76,7 @@
                 <div class="page-num"></div>
                 <div class="page">
                     <div class="page-separator"></div>
-                    <div>
+                    <div class="title-area">
                         <span class="practice-title">{{ucfirst($menus[3]->menu)}}</span>
                         <span class="article-title">{{$titles[$article_index]->title}}</span>
                     </div>
@@ -100,7 +102,7 @@
                 <div class="page-num"></div>
                 <div class="page">
                     <div class="page-separator"></div>
-                    <div>
+                    <div class="title-area">
                         <span class="answers-title">{{ucfirst($menus[4]->menu)}}</span>
                         <span class="article-title">{{$titles[$article_index]->title}}</span>
                     </div>
@@ -125,5 +127,8 @@
             </div>
             @endforeach
         </div>
+        <script>
+            document.getElementById("test").style.color="red";
+        </script>
     </body>
 </html>

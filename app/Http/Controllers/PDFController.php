@@ -39,7 +39,7 @@ class PDFController extends Controller
     	// return $pdf->stream();
     	// return $pdf->download();
     }
-    
+
     public function downloadPDF(){
         $db_story_menu = new StoryMenu();
         $db_title_reading = new ViewTitlesReading();
@@ -66,6 +66,7 @@ class PDFController extends Controller
         }
 
         $pdf = PDF::loadView('for_teachers/pdf/download_pdf',compact('menus','titles','readings','bolds','vocabularies','qas','practices'));
+        dd($pdf);
         $fileName =  'download.pdf';
         $pdf->save(public_path() . "/" . $fileName);
         $pdf = public_path($fileName);

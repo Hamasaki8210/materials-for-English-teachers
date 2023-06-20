@@ -101,7 +101,7 @@
                         <div class="vocabulary-area">
                             <div class="title-area">
                                 <span class="vocabulary-title">{{ucfirst($menus[1]->menu)}}</span>
-                                <span class="article-title">{{$titles[$article_index]->title}}</span>
+                                <span class="vocabulary-article-title">{{$titles[$article_index]->title}}</span>
                             </div>
                             @foreach($vocabularies as $vocabulary)
                                 @if($vocabulary->article_id == intval($article_index)+1)
@@ -113,7 +113,7 @@
                 </div>
                 <div class="page">
                     <div class="page-separator"></div>
-                    <div>
+                    <div class="title-area">
                         <span class="questions-title">{{ucfirst($menus[2]->menu)}}</span>
                         <span class="article-title">{{$titles[$article_index]->title}}</span>
                     </div>
@@ -138,7 +138,7 @@
                 </div>
                 <div class="page">
                     <div class="page-separator"></div>
-                    <div>
+                    <div class="title-area">
                         <span class="practice-title">{{ucfirst($menus[3]->menu)}}</span>
                         <span class="article-title">{{$titles[$article_index]->title}}</span>
                     </div>
@@ -163,7 +163,7 @@
                 </div>
                 <div class="page">
                     <div class="page-separator"></div>
-                    <div>
+                    <div class="title-area">
                         <span class="answers-title">{{ucfirst($menus[4]->menu)}}</span>
                         <span class="article-title">{{$titles[$article_index]->title}}</span>
                     </div>
