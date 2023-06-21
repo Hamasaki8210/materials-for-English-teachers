@@ -127,5 +127,11 @@
             </div>
             @endforeach
         </div>
+        <script>
+            var paragraph = document.getElementById("test");
+
+            // Change the color
+            paragraph.style.color = "red";
+        </script>
     </body>
 </html>
