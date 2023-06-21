@@ -36,7 +36,7 @@
                     <div>
                         <div class="vocabulary-area">
                             <div class="title-area">
-                                <span class="vocabulary-title" id="test">{{ucfirst($menus[1]->menu)}}</span>
+                                <span class="vocabulary-title">{{ucfirst($menus[1]->menu)}}</span>
                                 <span class="vocabulary-article-title">{{$titles[$article_index]->title}}</span>
                             </div>
                             @foreach($vocabularies as $vocabulary)
@@ -47,9 +47,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="page-num"></div>
+                <div class="page-num">1</div>
+                <div class="page-separator"></div>
                 <div class="page">
-                    <div class="page-separator"></div>
                     <div class="title-area">
                         <span class="questions-title">{{ucfirst($menus[2]->menu)}}</span>
                         <span class="article-title">{{$titles[$article_index]->title}}</span>
@@ -73,9 +73,9 @@
                         </table>
                     </div>
                 </div>
-                <div class="page-num"></div>
+                <div class="page-num">2</div>
+                <div class="page-separator"></div>
                 <div class="page">
-                    <div class="page-separator"></div>
                     <div class="title-area">
                         <span class="practice-title">{{ucfirst($menus[3]->menu)}}</span>
                         <span class="article-title">{{$titles[$article_index]->title}}</span>
@@ -99,9 +99,9 @@
                         </table>
                     </div>
                 </div>
-                <div class="page-num"></div>
+                <div class="page-num">3</div>
+                <div class="page-separator"></div>
                 <div class="page">
-                    <div class="page-separator"></div>
                     <div class="title-area">
                         <span class="answers-title">{{ucfirst($menus[4]->menu)}}</span>
                         <span class="article-title">{{$titles[$article_index]->title}}</span>
@@ -123,12 +123,9 @@
                         </table>
                     </div>
                 </div>
-                <div class="page-num"></div>
+                <div class="page-num">4</div>
             </div>
             @endforeach
         </div>
-        <script>
-            document.getElementById("test").style.color="red";
-        </script>
     </body>
 </html>

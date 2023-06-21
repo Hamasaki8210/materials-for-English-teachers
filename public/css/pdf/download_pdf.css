@@ -21,7 +21,7 @@
 }
 /* page-height-size */
 .page{
-    height: 235mm;
+    height: 281mm;
     display:block
 }
 
@@ -117,5 +117,5 @@
 .page-num{
     text-align: center;
     height: 10mm;
-    line-height: 35px;
+    line-height: 10mm;
 }

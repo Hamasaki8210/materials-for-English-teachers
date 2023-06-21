@@ -66,7 +66,6 @@ class PDFController extends Controller
         }
 
         $pdf = PDF::loadView('for_teachers/pdf/download_pdf',compact('menus','titles','readings','bolds','vocabularies','qas','practices'));
-        dd($pdf);
         $fileName =  'download.pdf';
         $pdf->save(public_path() . "/" . $fileName);
         $pdf = public_path($fileName);

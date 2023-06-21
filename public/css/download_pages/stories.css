@@ -225,29 +225,30 @@
     left: 240px;
 }
 
+/* page size */
 .content-area{
     background-color: white;
     /* overflow: scroll; */
     left: 300px;
     /* width: 595px; */
-    width: 172mm;
+    width: 21cm;
     position: relative;
 }
 /* page-height-size */
 .lesson-separator{
     height: 6mm;
     /* width: 595px; */
-    width: 172mm;
+    width: 21cm;
     background-color: #feefab;
 }
 /* page-height-size */
 .page-separator{
     height: 6mm;
-    width: 100%;
+    width: 21cm;
 }
 .indivisual-content-area{
     visibility: hidden;
-    padding: 0 20px 0 20px;
+    padding: 0 40px 0 40px;
 }
 .bread-crumbs{
     display: flex;
@@ -256,7 +257,7 @@
 }
 /* page-height-size */
 .page{
-    height: 235mm;
+    height: 281mm;
     display:block
 }
 
@@ -359,5 +360,5 @@
 .page-num{
     text-align: center;
     height: 10mm;
-    line-height: 35px;
+    line-height: 10mm;
 }
