@@ -22,7 +22,7 @@
             </div>
             <table>
                 @foreach ($titles as $titles_index => $title)
-                <tr class="menu-title-area">
+                <tr>
                     <td class="menu-title-checkbox">
                         <input class="menu-title-sessions" type="checkbox" checked>
                         <label></label>
@@ -69,7 +69,6 @@
             </table>
         </div>
         <div class="content-area">
-            <img class="loading-gif" src="{{ asset('images/loading.gif') }}" alt="">
             @foreach ($titles as $article_index => $title)
             <div class="lesson-separator"></div>
             <div class="indivisual-content-area">

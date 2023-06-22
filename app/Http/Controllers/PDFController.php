@@ -65,6 +65,8 @@ class PDFController extends Controller
             array_push($bolds, $split_bolds);
         }
 
+        // $image_path = storage_path('images/soccer-sample.png');
+        // $image_data = base64_encode(file_get_contents($image_path));
         $pdf = PDF::loadView('for_teachers/pdf/download_pdf',compact('menus','titles','readings','bolds','vocabularies','qas','practices'));
         $fileName =  'download.pdf';
         $pdf->save(public_path() . "/" . $fileName);

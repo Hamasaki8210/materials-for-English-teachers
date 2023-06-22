@@ -6,10 +6,10 @@
 }
 .story-page-inner{
     display: flex;
-    /* height: 100vh; */
-    /* height: 842px; */
-    width: 895px;
-    margin: auto;
+    width: 1094px;
+    /* margin: auto; */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* menu */
@@ -22,9 +22,6 @@
     width: 300px;
     min-width:300px;
     background-color: #f4fcfc;
-}
-.menu-title-area{
-    width: 100%;
 }
 .menu-title {
 	font-weight: bold;
@@ -218,19 +215,11 @@
 
 
 /* content */
-.loading-gif{
-    width: 100px;
-    position: relative;
-    top: 300px;
-    left: 240px;
-}
-
 /* page size */
 .content-area{
     background-color: white;
     /* overflow: scroll; */
     left: 300px;
-    /* width: 595px; */
     width: 21cm;
     position: relative;
 }
@@ -257,19 +246,19 @@
 }
 /* page-height-size */
 .page{
-    height: 281mm;
+    height: 271mm;
     display:block
 }
 
 /* reading */
 /* page-height-size */
 .reading{
-    height: 550px;
+    height: 600px;
 }
 .reading-title{
     font-size: 30px;
     text-align: center;
-    padding: 10px 0 10px 0;
+    padding: 20px 0 5px 0;
     font-weight: 500;
     color: #0a9c9c;
 }
@@ -310,6 +299,7 @@
     font-size: 25px;
     font-weight: 500;
     color: #0a9c9c;
+    padding: 10px 0 10px 0;
 }
 /* page-height-size */
 .vocabulary-area{
@@ -320,7 +310,7 @@
     font-size: 25px;
     font-weight: 500;
     color: #0a9c9c;
-    margin-top: 10px;
+    padding: 10px 0 10px 0;
 }
 .answers-area{
     margin-top: 10px;
@@ -330,12 +320,13 @@
 }
 .vocab-lists{
     font-size: 21px;
+    height: 35px;
 }
 .practice-margin,.question-margin{
     height: 10px;
 }
 .question-answer, .practice-answer{
-    width: 500px;
+    width: 630px;
     height: 38px;
     border-bottom: solid 1px black;
 }
@@ -359,6 +350,6 @@
 /* page number */
 .page-num{
     text-align: center;
-    height: 10mm;
-    line-height: 10mm;
+    height: 20mm;
+    line-height: 20mm;
 }

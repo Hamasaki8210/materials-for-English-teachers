@@ -13,23 +13,22 @@
             <div class="indivisual-content-area">
                 <div class="page">
                     <div class="reading">
-                        <div>
-                            <div class="reading-title">
-                                {{$title->title}}
-                            </div>
-                            <div class="reading-content">
-                                <div class="reading-story">
-                                    @foreach ($readings[$article_index] as $reading_index => $reading)
-                                        {{$reading}}
-                                        @if(isset($bolds[$article_index][$reading_index]))
-                                            @if(false !== strpos($bolds[$article_index][$reading_index], '*'))
-                                                <span><b>{{str_replace('*','',$bolds[$article_index][$reading_index])}}</b></span>.
-                                            @else
-                                                <span><b>{{$bolds[$article_index][$reading_index]}}</b></span>
-                                            @endif
+                        <div class="reading-title">
+                            {{$title->title}}
+                        </div>
+                        <div class="reading-content">
+                            <div class="reading-story">
+                                <img src="{{public_path('images/soccer-sample.jpg')}}">
+                                @foreach ($readings[$article_index] as $reading_index => $reading)
+                                    {{$reading}}
+                                    @if(isset($bolds[$article_index][$reading_index]))
+                                        @if(false !== strpos($bolds[$article_index][$reading_index], '*'))
+                                            <span><b>{{str_replace('*','',$bolds[$article_index][$reading_index])}}</b></span>.
+                                        @else
+                                            <span><b>{{$bolds[$article_index][$reading_index]}}</b></span>
                                         @endif
-                                    @endforeach
-                                </div>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -54,24 +53,22 @@
                         <span class="questions-title">{{ucfirst($menus[2]->menu)}}</span>
                         <span class="article-title">{{$titles[$article_index]->title}}</span>
                     </div>
-                    <div>
-                        <table>
-                            @foreach($qas as $qa)
-                                @if($qa->article_id == intval($article_index)+1)
-                                <tr class="question">
-                                    <td rowspan="3" class="question-num">
-                                    {{$qa->question_id}}.&nbsp;
-                                    </td>
-                                    <td>
-                                    {{$qa->question}}
-                                    </td>
-                                <tr>
-                                <tr><td class="question-answer"></td></tr>
-                                <tr><td class="question-margin"></td></tr>
-                                @endif
-                            @endforeach
-                        </table>
-                    </div>
+                    <table>
+                        @foreach($qas as $qa)
+                            @if($qa->article_id == intval($article_index)+1)
+                            <tr class="question">
+                                <td rowspan="3" class="question-num">
+                                {{$qa->question_id}}.&nbsp;
+                                </td>
+                                <td>
+                                {{$qa->question}}
+                                </td>
+                            <tr>
+                            <tr><td class="question-answer"></td></tr>
+                            <tr><td class="question-margin"></td></tr>
+                            @endif
+                        @endforeach
+                    </table>
                 </div>
                 <div class="page-num">2</div>
                 <div class="page-separator"></div>
@@ -80,24 +77,22 @@
                         <span class="practice-title">{{ucfirst($menus[3]->menu)}}</span>
                         <span class="article-title">{{$titles[$article_index]->title}}</span>
                     </div>
-                    <div>
-                        <table>
-                            @foreach($practices as $practice)
-                                @if($practice->article_id == intval($article_index)+1)
-                                <tr class="practice">
-                                    <td rowspan="3" class="practice-num">
-                                    {{$practice->practice_id}}.&nbsp;
-                                    </td>
-                                    <td>
-                                    {{$practice->practice}}
-                                    </td>
-                                <tr>
-                                <tr><td class="practice-answer"></td></tr>
-                                <tr><td class="practice-margin"></td></tr>
-                                @endif
-                            @endforeach
-                        </table>
-                    </div>
+                    <table>
+                        @foreach($practices as $practice)
+                            @if($practice->article_id == intval($article_index)+1)
+                            <tr class="practice">
+                                <td rowspan="3" class="practice-num">
+                                {{$practice->practice_id}}.&nbsp;
+                                </td>
+                                <td>
+                                {{$practice->practice}}
+                                </td>
+                            <tr>
+                            <tr><td class="practice-answer"></td></tr>
+                            <tr><td class="practice-margin"></td></tr>
+                            @endif
+                        @endforeach
+                    </table>
                 </div>
                 <div class="page-num">3</div>
                 <div class="page-separator"></div>
@@ -106,32 +101,24 @@
                         <span class="answers-title">{{ucfirst($menus[4]->menu)}}</span>
                         <span class="article-title">{{$titles[$article_index]->title}}</span>
                     </div>
-                    <div>
-                        <table>
-                            @foreach($qas as $qa)
-                                @if($qa->article_id == intval($article_index)+1)
-                                <tr class="answer">
-                                    <td class="answer-num">
-                                    {{$qa->question_id}}.&nbsp;&nbsp;
-                                    </td>
-                                    <td class="answer-sentence">
-                                    {{$qa->answer}}
-                                    </td>
-                                <tr>
-                                @endif
-                            @endforeach
-                        </table>
-                    </div>
+                    <table>
+                        @foreach($qas as $qa)
+                            @if($qa->article_id == intval($article_index)+1)
+                            <tr class="answer">
+                                <td class="answer-num">
+                                {{$qa->question_id}}.&nbsp;&nbsp;
+                                </td>
+                                <td class="answer-sentence">
+                                {{$qa->answer}}
+                                </td>
+                            <tr>
+                            @endif
+                        @endforeach
+                    </table>
                 </div>
                 <div class="page-num">4</div>
             </div>
             @endforeach
         </div>
-        <script>
-            var paragraph = document.getElementById("test");
-
-            // Change the color
-            paragraph.style.color = "red";
-        </script>
     </body>
 </html>
