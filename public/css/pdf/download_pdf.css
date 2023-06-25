@@ -45,32 +45,34 @@
     /* padding: 5px 15px 15px 15px; */
     font-size: 21px;
 }
+.reading-pic{
+    width: 200px;
+    float: left;
+	margin: 0 10px 10px 0;
+}
 
 /* vocabulary questions practice*/
-/* page-height-size */
 .title-area{
-    justify-content: space-between;
+    height: 60px;
+    line-height: 60px;
 }
+/* page-height-size */
 .vocabulary-title{
     font-size: 25px;
     font-weight: 500;
     color: #0a9c9c;
     margin-top: 10px;
-    padding: 20px 0 20px 0;
+    padding: 20px 0 0 0;
 }
 .vocabulary-article-title{
     color: rgb(228, 228, 223);
-    height: 37px;
-    line-height: 37px;
-    padding-top: 10px;
-    padding-left: 405px;
+    position: absolute;
+    right: 40px;
 }
 .article-title{
     color: rgb(228, 228, 223);
-    height: 34px;
-    line-height: 34px;
-    padding-right: 35px;
-    padding-left: 430px;
+    position: absolute;
+    right: 40px;
 }
 .questions-title, .practice-title, .answers-title{
     font-size: 25px;

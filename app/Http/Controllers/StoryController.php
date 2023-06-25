@@ -8,6 +8,7 @@ use App\Models\ViewQuestionsAnswer;
 use App\Models\ViewVocabulary;
 use App\Models\ViewPractice;
 use App\Models\StoryMenu;
+use App\Models\WorkArticleVisibility;
 
 class StoryController extends Controller
 {
@@ -24,7 +25,6 @@ class StoryController extends Controller
         $display_vocabularies = $db_vocabulary->getViewVocabularies(1);
         $display_practices = $db_practice->getViewPractices(1);
         $display_menus = $db_story_menu->getMenus();
-
         $display_sentences = [];
         $display_bolds = [];
 
@@ -44,5 +44,11 @@ class StoryController extends Controller
         ->with('vocabularies',$display_vocabularies)
         ->with('qas',$display_questions_answers)
         ->with('practices',$display_practices);
+    }
+
+    public function setVisibility(){
+
+        $db_work_article_visibility = new WorkArticleVisibility();
+
     }
 }

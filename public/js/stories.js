@@ -55,14 +55,14 @@ $(function(){
 						$(idNameDot).removeClass("hide");
 					}
 				}else if($(vocabularyClassName).attr("class").indexOf("hide")!=-1){
-					// if vocab invisible and reading hiding, display none  
+					// if vocab invisible and reading hiding, display none
 					if($(idNameDot).attr("class").indexOf("show")!=-1){
 						$(idNameDot).css('display','none');
 						$(idNameDot).addClass("hide");
 						$(idNameDot).removeClass("show");
 						// the page hides
 						$(idNameDot).parent().css('display','none');
-					// if vocab invisible and reading showing, display block 
+					// if vocab invisible and reading showing, display block
 					}else{
 						// if both reading and vocab are not showing, show the page first
 						if($(idNameDot).parent().css('display') === "none"){
@@ -175,7 +175,6 @@ $(function(){
     $('.pdf-icon').click(function() {
 		var data = '';
         $.ajax({
-			
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },

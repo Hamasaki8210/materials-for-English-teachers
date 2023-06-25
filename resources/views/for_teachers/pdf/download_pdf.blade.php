@@ -18,7 +18,7 @@
                         </div>
                         <div class="reading-content">
                             <div class="reading-story">
-                                <img src="{{public_path('images/soccer-sample.jpg')}}">
+                                <img class="reading-pic" src="{{public_path('images/soccer-sample.jpg')}}">
                                 @foreach ($readings[$article_index] as $reading_index => $reading)
                                     {{$reading}}
                                     @if(isset($bolds[$article_index][$reading_index]))

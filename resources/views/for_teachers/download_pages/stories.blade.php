@@ -111,7 +111,7 @@
                     </div>
                 </div>
                 <div class="page">
-                    <div class="page-separator"></div>
+                    <div class="page-separator" value="test"></div>
                     <div class="title-area">
                         <span class="questions-title">{{ucfirst($menus[2]->menu)}}</span>
                         <span class="article-title">{{$titles[$article_index]->title}}</span>
