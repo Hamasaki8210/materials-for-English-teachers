@@ -83,14 +83,14 @@
                                     <img class="reading-pic" src="{{ asset('images/soccer-sample.jpg') }}" alt="">
                                     @foreach ($readings[$article_index] as $reading_index => $reading)
                                     {{$reading}}
-                                    {{-- display values for each article --}}
-                                    @if(isset($bolds[$article_index][$reading_index]))
-                                        @if(false !== strpos($bolds[$article_index][$reading_index], '*'))
-                                        <span><b class={{"reading-vocab-".$article_index}}>{{str_replace('*','',$bolds[$article_index][$reading_index])}}</b></span>.
-                                        @else
-                                        <span><b class={{"reading-vocab-".$article_index}}>{{$bolds[$article_index][$reading_index]}}</b></span>
+                                        {{-- if bold has *, remove it --}}
+                                        @if(isset($bolds[$article_index][$reading_index]))
+                                            @if(false !== strpos($bolds[$article_index][$reading_index], '*'))
+                                            <span><b class={{"reading-vocab-".$article_index}}>{{str_replace('*','',$bolds[$article_index][$reading_index])}}</b></span>.
+                                            @else
+                                            <span><b class={{"reading-vocab-".$article_index}}>{{$bolds[$article_index][$reading_index]}}</b></span>
+                                            @endif
                                         @endif
-                                    @endif
                                     @endforeach
                                 </div>
                             </div>

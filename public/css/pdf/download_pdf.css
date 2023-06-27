@@ -7,7 +7,7 @@
     width: 21cm;
 }
 .indivisual-content-area{
-    padding: 0 40px 0 40px;
+    padding: 0 50px 0 50px;
 }
 /* page-height-size */
 .lesson-separator{
@@ -42,7 +42,8 @@
     display: flex;
 }
 .reading-story{
-    /* padding: 5px 15px 15px 15px; */
+    padding: 5px 5px 15px 5px;
+    line-height:35px;
     font-size: 21px;
 }
 .reading-pic{
@@ -67,12 +68,12 @@
 .vocabulary-article-title{
     color: rgb(228, 228, 223);
     position: absolute;
-    right: 40px;
+    right: 50px;
 }
 .article-title{
     color: rgb(228, 228, 223);
     position: absolute;
-    right: 40px;
+    right: 50px;
 }
 .questions-title, .practice-title, .answers-title{
     font-size: 25px;

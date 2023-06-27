@@ -12,6 +12,7 @@ use App\Models\WorkArticleVisibility;
 
 class StoryController extends Controller
 {
+    // get all database values for selected tense for initial download page
     public function show(){
 
         $db_story_menu = new StoryMenu();
@@ -20,6 +21,7 @@ class StoryController extends Controller
         $db_vocabulary = new ViewVocabulary();
         $db_practice = new ViewPractice();
 
+        // get database values calling each functions written in each models
         $target_db_titles_readings = $db_title_reading->getViewTitlesReadings(1);
         $display_questions_answers= $db_question_answer->getViewQuestionsAnswers(1);
         $display_vocabularies = $db_vocabulary->getViewVocabularies(1);
@@ -28,13 +30,20 @@ class StoryController extends Controller
         $display_sentences = [];
         $display_bolds = [];
 
-        // split sentences by bold parts and bolds by comma
+        // number of the articles
+        $article_number = count($target_db_titles_readings);
+
+        // split sentences by bold parts(**) and bolds by comma
         foreach($target_db_titles_readings as $index => $target_db_titles_reading){
             $split_sentences = preg_split("[\*\*]", $target_db_titles_reading->sentence);
             $split_bolds = preg_split("[,]", $target_db_titles_reading->bold);
             array_push($display_sentences, $split_sentences);
             array_push($display_bolds, $split_bolds);
         }
+
+        // insert work_article_visibilities table with visible status value(1)
+        $work_article_visibility_func = new WorkArticleVisibility();
+        $work_article_visibility_func->setInitialVisibility($article_number);
 
         return view('for_teachers/download_pages/stories')
         ->with('menus',$display_menus)
@@ -46,9 +55,9 @@ class StoryController extends Controller
         ->with('practices',$display_practices);
     }
 
-    public function setVisibility(){
-
-        $db_work_article_visibility = new WorkArticleVisibility();
-
+    // change visibility status when users click checkboxes
+    public function changeVisibilityStatus(){
+        $work_article_visibility_func = new WorkArticleVisibility();
+        $work_article_visibility_func->updateWorkArticleVisilibity();
     }
 }

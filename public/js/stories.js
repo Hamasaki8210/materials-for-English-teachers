@@ -172,7 +172,7 @@ function changePageNums(){
 };
 
 $(function(){
-    $('.pdf-icon').click(function() {
+    $('.pdf-dl-icon').click(function() {
 		var data = '';
         $.ajax({
             headers: {
@@ -196,4 +196,25 @@ $(function(){
             }
         });
     })
+});
+
+$(function(){
+    $('.pv-icon').click(function() {
+		var data = {
+			name: '0',
+			email: '0'
+		};
+
+		$.ajax({
+			url: '/for_teachers/changeVisibilityStatus',
+			type: 'GET',
+			data: data,
+			success: function(response) {
+				console.log("OK");
+			},
+			error: function(xhr, status, error) {
+				console.error("NG");
+			}
+		});
+	})
 });
