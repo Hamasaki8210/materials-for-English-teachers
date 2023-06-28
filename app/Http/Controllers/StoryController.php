@@ -56,7 +56,17 @@ class StoryController extends Controller
     }
 
     // change visibility status when users click checkboxes
-    public function changeVisibilityStatus(){
+    public function changeVisibilityStatus(Request $request){
+        $id = $request->input("idName");
+        $isChecked = $request->input("isChecked");
+
+        $split_values = preg_split("[-]", $id);
+        $split_count = count($split_values);
+        $id_name =
+        if($split_count > 2){
+
+        }
+        dd($id);
         $work_article_visibility_func = new WorkArticleVisibility();
         $work_article_visibility_func->updateWorkArticleVisilibity();
     }

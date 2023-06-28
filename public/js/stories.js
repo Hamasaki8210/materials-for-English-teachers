@@ -116,12 +116,14 @@ $(function(){
 				$(idNameDot).removeClass("hide");
 			}
 		}
+		updateStatus(idName);
 		changePageNums();
 	});
 
 
 	// when click reading slide checkbox, vocab in reading hides
 	$('.hide-switch').click(function(){
+		var idName = $(this).attr("id");
 		var idNameDot = "." + $(this).attr("id");
 		var idNameSharp = "#" + $(this).attr("id");
 		var eyeIcon = $(idNameSharp).parent().parent().children('.eye-icon');
@@ -140,6 +142,7 @@ $(function(){
 			eyeIcon.remove("i");
 			eyeIcon.html('<i class="fa fa-solid fa-eye-slash"></i>');
 		}
+		updateStatus(idName);
 	});
 
 	// if sentence too long, font size gets smaller
@@ -171,6 +174,34 @@ function changePageNums(){
 	}
 };
 
+function updateStatus(idName){
+
+	var idNameSharp = "#" + idName;
+	var data = {
+		idName: idName,
+		isChecked: $(idNameSharp).is(":checked")
+	};
+
+	$.ajax({
+		url: '/for_teachers/changeVisibilityStatus',
+		type: 'GET',
+		data: data,
+		success: function(response) {
+			console.log("OK");
+		},
+		error: function(xhr, status, error) {
+			console.error("NG");
+		}
+	})
+	// console.log($(idNameSharp).is(":checked"));
+	// if($(idNameSharp).is(":checked")){
+	// 	console.log(idNameSharp);
+	// 	console.log("checked");
+	// }else{
+	// 	console.log("not checed");
+	// }
+}
+
 $(function(){
     $('.pdf-dl-icon').click(function() {
 		var data = '';
@@ -199,22 +230,22 @@ $(function(){
 });
 
 $(function(){
-    $('.pv-icon').click(function() {
-		var data = {
-			name: '0',
-			email: '0'
-		};
+    // $('.pv-icon').click(function() {
+	// 	var data = {
+	// 		name: '0',
+	// 		email: '0'
+	// 	};
 
-		$.ajax({
-			url: '/for_teachers/changeVisibilityStatus',
-			type: 'GET',
-			data: data,
-			success: function(response) {
-				console.log("OK");
-			},
-			error: function(xhr, status, error) {
-				console.error("NG");
-			}
-		});
-	})
+	// 	$.ajax({
+	// 		url: '/for_teachers/changeVisibilityStatus',
+	// 		type: 'GET',
+	// 		data: data,
+	// 		success: function(response) {
+	// 			console.log("OK");
+	// 		},
+	// 		error: function(xhr, status, error) {
+	// 			console.error("NG");
+	// 		}
+	// 	});
+	// })
 });
