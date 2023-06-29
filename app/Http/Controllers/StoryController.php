@@ -9,6 +9,7 @@ use App\Models\ViewVocabulary;
 use App\Models\ViewPractice;
 use App\Models\StoryMenu;
 use App\Models\WorkArticleVisibility;
+use App\Models\SessionDbMapping;
 
 class StoryController extends Controller
 {
@@ -57,17 +58,32 @@ class StoryController extends Controller
 
     // change visibility status when users click checkboxes
     public function changeVisibilityStatus(Request $request){
-        $id = $request->input("idName");
-        $isChecked = $request->input("isChecked");
 
+        $id = $request->input("idName");
+        $isChecked = filter_var($request->input("isChecked"), FILTER_VALIDATE_BOOLEAN);
+
+        // if true then change it to 1, else then 0
+        $isCheckedForDb = $isChecked ? "1" : "0";
+        // split by hyphen
         $split_values = preg_split("[-]", $id);
         $split_count = count($split_values);
-        $id_name =
-        if($split_count > 2){
+        $id_name = "";
+        $article_id = 0;
 
+        // if the split values are more than 2, the first 2 values are the session name(this is readingvocab)
+        if($split_count > 2){
+            $id_name = $split_values[0] . $split_values[1];
+            $article_id = intval($split_values[2]) + 1;
+        // if the split values are less than 2, the first value is the session name(this is other than readingvocab)
+        }else{
+            $id_name = $split_values[0];
+            $article_id = intval($split_values[1]) + 1;
         }
-        dd($id);
+        // get mapped db column name according to the session name given from view
+        $sessionDbMapping = new SessionDbMapping();
+        $db_column_name = $sessionDbMapping->getMappedDbName($id_name);
         $work_article_visibility_func = new WorkArticleVisibility();
-        $work_article_visibility_func->updateWorkArticleVisilibity();
+        // update work article visibility table
+        $work_article_visibility_func->updateWorkArticleVisilibity($db_column_name[0]->db_column_name, $article_id, $isCheckedForDb);
     }
 }

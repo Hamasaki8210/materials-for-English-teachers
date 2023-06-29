@@ -36,27 +36,12 @@ class WorkArticleVisibility extends Model
     }
 
     // update work_artcle_visibilities table when users change the visible/invisible status
-    public function updateWorkArticleVisilibity()
+    public function updateWorkArticleVisilibity($db_column_name, $article_id, $isCheckedForDb)
     {
-        $article_id = "1";
-        $article = "1";
-        $reading_bold = "0";
-        $reading_session = "0";
-        $vocab_session = "0";
-        $question_session = "0";
-        $practice_session = "1";
-        $answer_session = "1";
-
         $visibility = $this->where('article_id', $article_id)
             ->update(
                 [
-                    'article' => $article,
-                    'reading_bold' => $reading_bold,
-                    'reading_session' => $reading_session,
-                    'vocab_session' => $vocab_session,
-                    'question_session' => $question_session,
-                    'practice_session' => $practice_session,
-                    'answer_session' => $answer_session
+                    $db_column_name => $isCheckedForDb
                 ]
             );
     }
