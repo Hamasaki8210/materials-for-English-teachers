@@ -45,4 +45,10 @@ class WorkArticleVisibility extends Model
                 ]
             );
     }
+
+    public function getVisibleWorkArticles()
+    {
+        $results = $this->where('article', '1')->get();
+        return $results;
+    }
 }

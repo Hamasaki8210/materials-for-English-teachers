@@ -8,6 +8,7 @@ use App\Models\ViewTitlesReading;
 use App\Models\ViewQuestionsAnswer;
 use App\Models\ViewVocabulary;
 use App\Models\ViewPractice;
+use App\Models\WorkArticleVisibility;
 use App\Models\StoryMenu;
 
 class PDFController extends Controller
@@ -46,6 +47,7 @@ class PDFController extends Controller
         $db_question_answer = new ViewQuestionsAnswer();
         $db_vocabulary = new ViewVocabulary();
         $db_practice = new ViewPractice();
+        $db_visibility = new WorkArticleVisibility();
 
         $menus = $db_story_menu->getMenus();
         $target_db_titles_readings = $db_title_reading->getViewTitlesReadings(1);
@@ -53,6 +55,7 @@ class PDFController extends Controller
         $qas= $db_question_answer->getViewQuestionsAnswers(1);
         $vocabularies = $db_vocabulary->getViewVocabularies(1);
         $practices = $db_practice->getViewPractices(1);
+        $visible_articles = $db_visibility->getVisibleWorkArticles();
 
         $readings = [];
         $bolds = [];
@@ -67,7 +70,7 @@ class PDFController extends Controller
 
         // $image_path = storage_path('images/soccer-sample.png');
         // $image_data = base64_encode(file_get_contents($image_path));
-        $pdf = PDF::loadView('for_teachers/pdf/download_pdf',compact('menus','titles','readings','bolds','vocabularies','qas','practices'));
+        $pdf = PDF::loadView('for_teachers/pdf/download_pdf',compact('menus','titles','readings','bolds','vocabularies','qas','practices','visible_articles'));
         $fileName =  'download.pdf';
         $pdf->save(public_path() . "/" . $fileName);
         $pdf = public_path($fileName);

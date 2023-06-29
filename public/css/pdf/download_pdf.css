@@ -125,3 +125,11 @@
     height: 20mm;
     line-height: 20mm;
 }
+
+/* show and hide controll */
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}

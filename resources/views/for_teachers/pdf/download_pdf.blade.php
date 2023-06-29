@@ -47,8 +47,8 @@
                     </div>
                 </div>
                 <div class="page-num">1</div>
-                <div class="page-separator"></div>
-                <div class="page">
+                <div class="page-separator {{($visible_articles[$article_index]->question_session==='1') ? 'show' : 'hide'}}"></div>
+                <div class="page {{($visible_articles[$article_index]->question_session==='1') ? 'show' : 'hide'}}">
                     <div class="title-area">
                         <span class="questions-title">{{ucfirst($menus[2]->menu)}}</span>
                         <span class="article-title">{{$titles[$article_index]->title}}</span>
@@ -70,9 +70,9 @@
                         @endforeach
                     </table>
                 </div>
-                <div class="page-num">2</div>
-                <div class="page-separator"></div>
-                <div class="page">
+                <div class="page-num {{($visible_articles[$article_index]->question_session==='1') ? 'show' : 'hide'}}">2</div>
+                <div class="page-separator {{($visible_articles[$article_index]->practice_session==='1') ? 'show' : 'hide'}}"></div>
+                <div class="page {{($visible_articles[$article_index]->practice_session==='1') ? 'show' : 'hide'}}">
                     <div class="title-area">
                         <span class="practice-title">{{ucfirst($menus[3]->menu)}}</span>
                         <span class="article-title">{{$titles[$article_index]->title}}</span>
@@ -94,9 +94,10 @@
                         @endforeach
                     </table>
                 </div>
-                <div class="page-num">3</div>
-                <div class="page-separator"></div>
-                <div class="page">
+                {{-- if status is visible then show --}}
+                <div class="page-num {{($visible_articles[$article_index]->practice_session==='1') ? 'show' : 'hide'}}">3</div>
+                <div class="page-separator {{($visible_articles[$article_index]->answer_session==='1') ? 'show' : 'hide'}}"></div>
+                <div class="page {{($visible_articles[$article_index]->answer_session==='1') ? 'show' : 'hide'}}">
                     <div class="title-area">
                         <span class="answers-title">{{ucfirst($menus[4]->menu)}}</span>
                         <span class="article-title">{{$titles[$article_index]->title}}</span>
@@ -116,7 +117,7 @@
                         @endforeach
                     </table>
                 </div>
-                <div class="page-num">4</div>
+                <div class="page-num {{($visible_articles[$article_index]->answer_session==='1') ? 'show' : 'hide'}}">4</div>
             </div>
             @endforeach
         </div>
