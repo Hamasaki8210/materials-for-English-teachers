@@ -134,6 +134,8 @@
 .show{
     display: block;
 }
-.reading_bold_underline{
-    border-bottom: solid 1px;
+.invisible{
+    /* opacity: 0; */
+    color: white;
+    border-bottom: solid 1px black;
 }
