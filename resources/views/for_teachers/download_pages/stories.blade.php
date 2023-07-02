@@ -110,8 +110,8 @@
                         </div>
                     </div>
                 </div>
+                <div class="page-separator separator-question-{{$article_index}}"></div>
                 <div class="page">
-                    <div class="page-separator" value="test"></div>
                     <div class="title-area">
                         <span class="questions-title">{{ucfirst($menus[2]->menu)}}</span>
                         <span class="article-title">{{$titles[$article_index]->title}}</span>
@@ -135,8 +135,8 @@
                         </table>
                     </div>
                 </div>
+                <div class="page-separator separator-practice-{{$article_index}}"></div>
                 <div class="page">
-                    <div class="page-separator"></div>
                     <div class="title-area">
                         <span class="practice-title">{{ucfirst($menus[3]->menu)}}</span>
                         <span class="article-title">{{$titles[$article_index]->title}}</span>
@@ -160,8 +160,8 @@
                         </table>
                     </div>
                 </div>
+                <div class="page-separator separator-answer-{{$article_index}}"></div>
                 <div class="page">
-                    <div class="page-separator"></div>
                     <div class="title-area">
                         <span class="answers-title">{{ucfirst($menus[4]->menu)}}</span>
                         <span class="article-title">{{$titles[$article_index]->title}}</span>

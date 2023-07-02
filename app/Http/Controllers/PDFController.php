@@ -59,6 +59,7 @@ class PDFController extends Controller
 
         $readings = [];
         $bolds = [];
+        $page_separators = [];
 
         // split sentences by bold parts and bolds by comma
         foreach($titles as $index => $target_db_titles_reading){
@@ -68,9 +69,48 @@ class PDFController extends Controller
             array_push($bolds, $split_bolds);
         }
 
-        // $image_path = storage_path('images/soccer-sample.png');
-        // $image_data = base64_encode(file_get_contents($image_path));
-        $pdf = PDF::loadView('for_teachers/pdf/download_pdf',compact('menus','titles','readings','bolds','vocabularies','qas','practices','visible_articles'));
+        foreach($visible_articles as $index => $visible_article){
+            // update page separator visibility
+            $reading_page = "1";
+            $question_page_separator = "1";
+            $practice_page_separator = "1";
+            $answer_page_separator = "1";
+            $page_separator = [];
+            $page_number = 0;
+
+            if($visible_article->reading_session === "0" && $visible_article->vocab_session === "0"){
+                $reading_page = "0";
+            }
+            // if question page is the first page, not display page question page separator
+            if($visible_article->question_session === "0" || 
+                ($visible_article->question_session === "1" && $reading_page === "0")){
+                $question_page_separator = "0";
+            }
+            // if practice page is invisible or practice page is the first page, not display page practice page separator
+            if($visible_article->practice_session === "0" ||
+                ($visible_article->practice_session === "1" && $reading_page === "0" && $visible_article->question_session === "0")){
+                $practice_page_separator = "0";
+            }
+            // if answer page is invisible or answer page is the first page, not display page answer page separator
+            if($visible_article->answer_session === "0" ||
+                ($visible_article->answer_session === "1" && $reading_page === "0" && 
+                $visible_article->question_session === "0" && $visible_article->practice_session === "0")){
+                $answer_page_separator = "0";
+            }
+            $page_separator = [
+                "question_separator" => $question_page_separator,
+                "practice_separator" => $practice_page_separator,
+                "answer_separator" => $answer_page_separator
+            ];
+            array_push($page_separators, $page_separator);
+        }
+
+        // insert page number into work article visibility table
+        $db_visibility->setPageNumber();
+        // dd($visible_articles[0]->answer_page_number);
+
+// dd($page_separators);
+        $pdf = PDF::loadView('for_teachers/pdf/download_pdf',compact('menus','titles','readings','bolds','vocabularies','qas','practices','visible_articles','page_separators'));
         $fileName =  'download.pdf';
         $pdf->save(public_path() . "/" . $fileName);
         $pdf = public_path($fileName);

@@ -3,6 +3,7 @@
     margin: 0mm; /* Set margin on each page */
 }
 /* content */
+/* a4 height 297mm = page separator 6mm + page 271mm + page number 20mm*/
 .content-area{
     width: 21cm;
 }
@@ -123,7 +124,7 @@
 .page-num{
     text-align: center;
     height: 20mm;
-    line-height: 20mm;
+    line-height: 15mm;
 }
 
 /* show and hide controll */
@@ -132,4 +133,7 @@
 }
 .show{
     display: block;
+}
+.reading_bold_underline{
+    border-bottom: solid 1px;
 }

@@ -2,7 +2,6 @@ $(function(){
 
 	$('[data-toggle="tooltip"]').tooltip();
 
-	// $(".test").append($(".story-page").html());
 	// when loaded, loading page appears for a sec on content area
 	setTimeout(function() {
 		$('.indivisual-content-area').css("visibility","visible");
@@ -118,6 +117,7 @@ $(function(){
 		}
 		updateStatus(idName);
 		changePageNums();
+		removePageSeparator(idName);
 	});
 
 
@@ -174,6 +174,14 @@ function changePageNums(){
 	}
 };
 
+function removePageSeparator(idName){
+	idNameDot = "." + idName;
+	var separatorClassName = ".separator-" + idName;
+	if($(idNameDot).attr("class").indexOf("hide")!=-1){
+		$(separatorClassName).remove();
+	}
+};
+
 function updateStatus(idName){
 
 	var idNameSharp = "#" + idName;
@@ -193,13 +201,6 @@ function updateStatus(idName){
 			console.error("NG");
 		}
 	})
-	// console.log($(idNameSharp).is(":checked"));
-	// if($(idNameSharp).is(":checked")){
-	// 	console.log(idNameSharp);
-	// 	console.log("checked");
-	// }else{
-	// 	console.log("not checed");
-	// }
 }
 
 $(function(){

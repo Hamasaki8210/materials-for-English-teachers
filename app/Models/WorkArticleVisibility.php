@@ -51,4 +51,63 @@ class WorkArticleVisibility extends Model
         $results = $this->where('article', '1')->get();
         return $results;
     }
+
+    // set page number for each page according to the visibility
+    public function setPageNumber()
+    {
+        $visible_article_datas = $this->getVisibleWorkArticles();
+        $total_page_number = 0;
+        $reading_page_num = "";
+        $question_page_num = "";
+        $practice_page_num = "";
+        $answer_page_num = "";
+        $update_data = [];
+        $target_update_id = "";
+
+        // update the page number in the work table
+        foreach($visible_article_datas as $index => $visible_article_data){
+
+            // get target article id
+            $target_update_id = $visible_article_data->article_id;
+
+            // if reading or vocab session is visible, set page number for reading page
+            if($visible_article_data->reading_session === "1" || $visible_article_data->vocab_session === "1"){
+                $total_page_number++;
+                $reading_page_num = $total_page_number;
+            }else{
+                $reading_page_num = null;
+            }
+            // if question session is visible, set page number for question page
+            if($visible_article_data->question_session === "1"){
+                $total_page_number++;
+                $question_page_num = $total_page_number;
+            }else{
+                $question_page_num = null;
+            }
+            // if practice session is visible, set page number for practice page
+            if($visible_article_data->practice_session === "1"){
+                $total_page_number++;
+                $practice_page_num = $total_page_number;
+            }else{
+                $practice_page_num = null;
+            }
+            // if answer session is visible, set page number for answer page
+            if($visible_article_data->answer_session === "1"){
+                $total_page_number++;
+                $answer_page_num = $total_page_number;
+            }else{
+                $answer_page_num = null;
+            }
+
+            $page_numbers = $this->where('article_id', $target_update_id)
+            ->update(
+                [
+                    "reading_page_number" => $reading_page_num,
+                    "question_page_number" => $question_page_num,
+                    "practice_page_number" => $practice_page_num,
+                    "answer_page_number" => $answer_page_num
+                ]
+            );
+        }
+    }
 }
