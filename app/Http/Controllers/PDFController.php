@@ -82,7 +82,7 @@ class PDFController extends Controller
                 $reading_page = "0";
             }
             // if question page is the first page, not display page question page separator
-            if($visible_article->question_session === "0" || 
+            if($visible_article->question_session === "0" ||
                 ($visible_article->question_session === "1" && $reading_page === "0")){
                 $question_page_separator = "0";
             }
@@ -93,7 +93,7 @@ class PDFController extends Controller
             }
             // if answer page is invisible or answer page is the first page, not display page answer page separator
             if($visible_article->answer_session === "0" ||
-                ($visible_article->answer_session === "1" && $reading_page === "0" && 
+                ($visible_article->answer_session === "1" && $reading_page === "0" &&
                 $visible_article->question_session === "0" && $visible_article->practice_session === "0")){
                 $answer_page_separator = "0";
             }

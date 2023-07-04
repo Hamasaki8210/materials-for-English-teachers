@@ -220,7 +220,7 @@ $(function(){
                 var blob = new Blob([response]);
                 var link = document.createElement('a');
                 link.href = window.URL.createObjectURL(blob);
-                link.download = "techsolutionstuff.pdf";
+                link.download = "English-teaching-articles.pdf";
                 link.click();
             },
             error: function(blob){
