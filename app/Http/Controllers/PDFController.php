@@ -42,6 +42,59 @@ class PDFController extends Controller
     }
 
     public function downloadPDF(){
+
+        $results = $this->updatePDF();
+
+        $menus = $results['menus'];
+        $titles = $results['titles'];
+        $readings = $results['readings'];
+        $bolds = $results['bolds'];
+        $vocabularies = $results['vocabularies'];
+        $qas = $results['qas'];
+        $practices = $results['practices'];
+        $visible_articles = $results['visible_articles'];
+        $page_separators = $results['page_separators'];
+
+
+        $pdf = PDF::loadView('for_teachers/pdf/download_pdf',compact('menus','titles','readings','bolds','vocabularies','qas','practices','visible_articles','page_separators'));
+        $fileName =  'download.pdf';
+        $pdf->save(public_path() . "/" . $fileName);
+        $pdf = public_path($fileName);
+        return response()->download($pdf);
+    }
+
+    public function previewPDF() {
+
+        $results = $this->updatePDF();
+
+        $menus = $results['menus'];
+        $titles = $results['titles'];
+        $readings = $results['readings'];
+        $bolds = $results['bolds'];
+        $vocabularies = $results['vocabularies'];
+        $qas = $results['qas'];
+        $practices = $results['practices'];
+        $visible_articles = $results['visible_articles'];
+        $page_separators = $results['page_separators'];
+
+        $pdf = PDF::loadView('for_teachers/pdf/download_pdf',compact('menus','titles','readings','bolds','vocabularies','qas','practices','visible_articles','page_separators'));
+        $fileName =  'download.pdf';
+        $pdf->save(public_path() . "/" . $fileName);
+        $pdf = public_path($fileName);
+        return response()->download($pdf);
+        // $grammar_article_contents = GrammarArticle::all();
+        // $pdf = PDF::loadView('for_teachers.test', compact('grammar_article_contents'));
+        // $pdf->setPaper('A4');
+        // return $pdf->stream();
+        // $pdf->setPaper('A4');
+        // $pdf = PDF::loadHTML('<h1>Hello World</h1>');
+
+    	// return $pdf->stream();
+    	// return $pdf->download();
+    }
+
+    public function updatePDF() {
+
         $db_story_menu = new StoryMenu();
         $db_title_reading = new ViewTitlesReading();
         $db_question_answer = new ViewQuestionsAnswer();
@@ -107,13 +160,18 @@ class PDFController extends Controller
 
         // insert page number into work article visibility table
         $db_visibility->setPageNumber();
-        // dd($visible_articles[0]->answer_page_number);
+        $visible_articles = $db_visibility->getVisibleWorkArticles();
 
-// dd($page_separators);
-        $pdf = PDF::loadView('for_teachers/pdf/download_pdf',compact('menus','titles','readings','bolds','vocabularies','qas','practices','visible_articles','page_separators'));
-        $fileName =  'download.pdf';
-        $pdf->save(public_path() . "/" . $fileName);
-        $pdf = public_path($fileName);
-        return response()->download($pdf);
+        return [
+            'menus' => $menus,
+            'titles' => $titles,
+            'readings' => $readings,
+            'bolds' => $bolds,
+            'vocabularies' => $vocabularies,
+            'qas' => $qas,
+            'practices' => $practices,
+            'visible_articles' => $visible_articles,
+            'page_separators' => $page_separators
+        ];
     }
 }

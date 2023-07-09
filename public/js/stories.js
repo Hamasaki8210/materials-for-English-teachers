@@ -211,42 +211,63 @@ $(function(){
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
             type:'GET',
-            url:'/for_teachers/test2',
+            url:'/for_teachers/downloadPDF',
 			data: data,
             xhrFields: {
                 responseType: 'blob'
             },
+			beforeSend: () => {
+				$(".loading-pic").show();
+				$(".loading-background").show();
+			},
+			complete: () => {
+				$(".loading-pic").hide();
+				$(".loading-background").hide();
+			},
             success: function(response){
                 var blob = new Blob([response]);
                 var link = document.createElement('a');
                 link.href = window.URL.createObjectURL(blob);
                 link.download = "English-teaching-articles.pdf";
                 link.click();
+				console.log("OK");
             },
             error: function(blob){
-                console.log(blob);
+                console.log("NG");
             }
         });
     })
 });
 
 $(function(){
-    // $('.pv-icon').click(function() {
-	// 	var data = {
-	// 		name: '0',
-	// 		email: '0'
-	// 	};
-
-	// 	$.ajax({
-	// 		url: '/for_teachers/changeVisibilityStatus',
-	// 		type: 'GET',
-	// 		data: data,
-	// 		success: function(response) {
-	// 			console.log("OK");
-	// 		},
-	// 		error: function(xhr, status, error) {
-	// 			console.error("NG");
-	// 		}
-	// 	});
-	// })
+    $('.pdf-pv-icon').click(function() {
+		var data = '';
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+            type:'GET',
+            url:'/for_teachers/previewPDF',
+			data: data,
+            xhrFields: {
+                responseType: 'blob'
+            },
+			beforeSend: () => {
+				$(".loading-pic").show();
+				$(".loading-background").show();
+			},
+			complete: () => {
+				$(".loading-pic").hide();
+				$(".loading-background").hide();
+			},
+            success: function(response){
+				var blob = new Blob([response], { type: 'application/pdf' });
+				var url = URL.createObjectURL(blob);
+				window.open(url);
+            },
+            error: function(blob){
+                console.log(blob);
+            }
+        });
+    })
 });

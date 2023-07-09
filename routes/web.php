@@ -31,10 +31,12 @@ Route::get('/for_teachers/simple_sentences', function () {
     return view('/for_teachers/grammar/simple_sentences');
 });
 
-Route::get('/for_teachers/stories', [StoryController::class,'show']) -> name('stories');
+// Route::get('/for_teachers/stories', [StoryController::class,'show']) -> name('stories');
+Route::get('/for_teachers/stories/{tense_id}', 'App\Http\Controllers\StoryController@show') -> name('stories');
 // Route::get('/for_teachers/stories', [PDFController::class,'index']) -> name('stories');
 
 Route::get('pdf','App\Http\Controllers\PDFController@index');
 
-Route::get('/for_teachers/test2', 'App\Http\Controllers\PDFController@downloadPDF');
+Route::get('/for_teachers/downloadPDF', 'App\Http\Controllers\PDFController@downloadPDF');
+Route::get('/for_teachers/previewPDF', 'App\Http\Controllers\PDFController@previewPDF');
 Route::get('/for_teachers/changeVisibilityStatus', [StoryController::class,'changeVisibilityStatus'])->name('change.visibility');
