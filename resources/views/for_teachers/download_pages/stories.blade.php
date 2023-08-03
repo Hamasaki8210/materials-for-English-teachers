@@ -1,12 +1,15 @@
 @extends('for_teachers.download_pages.contents')
 @push('css')
     <link href="{{ asset('css/download_pages/stories.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/download_pages/loading.css') }}" rel="stylesheet">
 @endpush
 @push('js')
     <script src="{{ asset('js/stories.js') }}" async></script>
 @endpush
 @section('stories')
 <div class="story-page">
+    <div class="loading-background"></div>
+    <img class="loading-pic" src="{{ asset('images/loading.gif') }}" alt="">
     <div class="story-page-inner">
         <div class="menu-area">
             <div class="bread-crumbs">
@@ -61,7 +64,7 @@
                 <tr>
                     <td></td>
                     <td class="menu-icons-area">
-                        <div class="menu-icons-circle pv-icon pdf-icon"><i class="fa-solid fa-file-lines fa-lg"><span class="menu-tooltip tooltip-pv">Preview</span></i></div>
+                        <div class="menu-icons-circle pdf-pv-icon pdf-icon"><i class="fa-solid fa-file-lines fa-lg"><span class="menu-tooltip tooltip-pv">Preview</span></i></div>
                         <div class="menu-icons-circle pdf-dl-icon pdf-icon"><i class="fa-solid fa-file-pdf fa-lg"><span class="menu-tooltip tooltip-p">Download PDF</span></i></i></div>
                         <div class="menu-icons-circle word-dl-icon pdf-icon"><i class="fa-solid fa-file-word fa-lg"><span class="menu-tooltip tooltip-w">Download Word</span></i></i></div>
                     </td>
@@ -188,7 +191,6 @@
 
         </div>
     </div>
-
 </div>
 
 @endsection

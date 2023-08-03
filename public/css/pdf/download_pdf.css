@@ -44,8 +44,8 @@
 }
 .reading-story{
     padding: 5px 5px 15px 5px;
-    line-height:35px;
-    font-size: 21px;
+    line-height:36px;
+    font-size: 22px;
 }
 .reading-pic{
     width: 200px;
@@ -91,10 +91,10 @@
     margin-top: 10px;
 }
 .question, .practice{
-    font-size: 20px;
+    font-size: 22px;
 }
 .vocab-lists{
-    font-size: 21px;
+    font-size: 22px;
     height: 35px;
 }
 .practice-margin,.question-margin{
@@ -106,7 +106,7 @@
     border-bottom: solid 1px black;
 }
 .answer-sentence{
-    font-size: 21px;
+    font-size: 22px;
     height: 43px;
     line-height: 43px;
 }
@@ -131,11 +131,9 @@
 .hide{
     display: none;
 }
-.show{
-    display: block;
-}
 .invisible{
     /* opacity: 0; */
     color: white;
     border-bottom: solid 1px black;
+    padding-bottom: 1px;
 }

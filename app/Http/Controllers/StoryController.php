@@ -14,7 +14,9 @@ use App\Models\SessionDbMapping;
 class StoryController extends Controller
 {
     // get all database values for selected tense for initial download page
-    public function show(){
+    public function show($tense_id){
+
+        // dd($tense_id);
 
         $db_story_menu = new StoryMenu();
         $db_title_reading = new ViewTitlesReading();
@@ -23,10 +25,10 @@ class StoryController extends Controller
         $db_practice = new ViewPractice();
 
         // get database values calling each functions written in each models
-        $target_db_titles_readings = $db_title_reading->getViewTitlesReadings(1);
-        $display_questions_answers= $db_question_answer->getViewQuestionsAnswers(1);
-        $display_vocabularies = $db_vocabulary->getViewVocabularies(1);
-        $display_practices = $db_practice->getViewPractices(1);
+        $target_db_titles_readings = $db_title_reading->getViewTitlesReadings($tense_id);
+        $display_questions_answers= $db_question_answer->getViewQuestionsAnswers($tense_id);
+        $display_vocabularies = $db_vocabulary->getViewVocabularies($tense_id);
+        $display_practices = $db_practice->getViewPractices($tense_id);
         $display_menus = $db_story_menu->getMenus();
         $display_sentences = [];
         $display_bolds = [];

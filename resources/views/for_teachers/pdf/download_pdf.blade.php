@@ -24,13 +24,9 @@
                                     {{$reading}}
                                     @if(isset($bolds[$article_index][$reading_index]))
                                         @if(false !== strpos($bolds[$article_index][$reading_index], '*'))
-                                            <b class="{{($visible_articles[$article_index]->reading_bold==='0') ? 'invisible' : ''}}">
-                                                <span class="test">{{str_replace('*','',$bolds[$article_index][$reading_index])}}</span>
-                                            </b>.
+                                        <b class="{{($visible_articles[$article_index]->reading_bold==='0') ? 'invisible' : ''}}">{{str_replace('*','',$bolds[$article_index][$reading_index])}}</b>.
                                         @else
-                                            <b class="{{($visible_articles[$article_index]->reading_bold==='0') ? 'invisible' : ''}}">
-                                                <span class="test">{{$bolds[$article_index][$reading_index]}}</span>
-                                            </b>
+                                        <b class="{{($visible_articles[$article_index]->reading_bold==='0') ? 'invisible' : ''}}">{{$bolds[$article_index][$reading_index]}}</b>
                                         @endif
                                     @endif
                                 @endforeach
