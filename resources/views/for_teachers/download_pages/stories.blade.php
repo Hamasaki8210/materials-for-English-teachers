@@ -24,8 +24,8 @@
                 @foreach ($titles as $titles_index => $title)
                 <tr>
                     <td class="menu-title-checkbox">
-                        <input class="menu-title-sessions" type="checkbox" checked>
-                        <label></label>
+                        <input class="menu-title-sessions" type="checkbox" id={{"article-".$titles_index}} checked>
+                        <label for={{"article-".$titles_index}}></label>
                     </td>
                     <td>
                         <p class="menu-title">
@@ -37,14 +37,14 @@
                             <div class="checkbox-lists">
                                 <div>
                                     <div class="menu-session-outer">
-                                        <input class="menu-sessions" type="checkbox" id={{$menu->menu."-".$titles_index}} checked>
+                                        <input class="menu-sessions {{"disable-target-".$titles_index}}" type="checkbox" id={{$menu->menu."-".$titles_index}} checked>
                                         <label for={{$menu->menu."-".$titles_index}}>{{$menu->menu}}</label>
                                     </div>
                                 </div>
                                 @if($menu_index === 0)
                                 <div class="reading-visible-area">
                                     <label class="switch" for="{{'reading-vocab-'.$titles_index}}">
-                                        <input type="checkbox" id="{{'reading-vocab-'.$titles_index}}" class="hide-switch" checked/>
+                                        <input type="checkbox" id="{{'reading-vocab-'.$titles_index}}" class="hide-switch {{"disable-target-".$titles_index}}" checked/>
                                         <div class="slider round"></div>
                                     </label>
                                     <div class="eye-icon">

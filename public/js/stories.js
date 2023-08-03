@@ -120,7 +120,6 @@ $(function(){
 		removePageSeparator(idName);
 	});
 
-
 	// when click reading slide checkbox, vocab in reading hides
 	$('.hide-switch').click(function(){
 		var idName = $(this).attr("id");
@@ -142,6 +141,15 @@ $(function(){
 			eyeIcon.remove("i");
 			eyeIcon.html('<i class="fa fa-solid fa-eye-slash"></i>');
 		}
+		updateStatus(idName);
+	});
+
+	// when checkbox for whole article is off, hide the aritcle and disable the related checkboxes
+	$('.menu-title-sessions').click(function(){
+		var idName = $(this).attr("id");
+		var articleNum = idName.replace("article-","");
+		var disableTargetName = ".disable-target-" + articleNum;
+		$(disableTargetName).prop("disabled",true);
 		updateStatus(idName);
 	});
 
