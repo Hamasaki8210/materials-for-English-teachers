@@ -13,37 +13,10 @@ use App\Models\StoryMenu;
 
 class PDFController extends Controller
 {
-    // public function index(){
+    public function downloadPDF(Request $request){
 
-    // 	$pdf = PDF::loadHTML('<h1>Hello World</h1>');
-
-    // 	return $pdf->stream();
-
-    // }
-    public function index() {
-        // $sushiTable = [
-        //     'たまご' => '100円',
-        //     'いくら' => '200円',
-        //     'サーモン' => '180円',
-        //     'いか' => '100円',
-        //     'マグロ' => '110円',
-        //     'えび' => '100円',
-        // ];
-
-        // $grammar_article_contents = GrammarArticle::all();
-        // $pdf = PDF::loadView('for_teachers.test', compact('grammar_article_contents'));
-        // $pdf->setPaper('A4');
-        // return $pdf->stream();
-        // $pdf->setPaper('A4');
-        // $pdf = PDF::loadHTML('<h1>Hello World</h1>');
-
-    	// return $pdf->stream();
-    	// return $pdf->download();
-    }
-
-    public function downloadPDF(){
-
-        $results = $this->updatePDF();
+        $tense_id = $request->input("data");
+        $results = $this->updatePDF($tense_id);
 
         $menus = $results['menus'];
         $titles = $results['titles'];
@@ -55,12 +28,12 @@ class PDFController extends Controller
         $visible_articles = $results['visible_articles'];
         $page_separators = $results['page_separators'];
 
-
         $pdf = PDF::loadView('for_teachers/pdf/download_pdf',compact('menus','titles','readings','bolds','vocabularies','qas','practices','visible_articles','page_separators'));
         $fileName =  'download.pdf';
         $pdf->save(public_path() . "/" . $fileName);
         $pdf = public_path($fileName);
         return response()->download($pdf);
+        // return response()->json(["test"=>$qas]);
     }
 
     public function previewPDF() {
@@ -93,7 +66,7 @@ class PDFController extends Controller
     	// return $pdf->download();
     }
 
-    public function updatePDF() {
+    public function updatePDF($tense_id) {
 
         $db_story_menu = new StoryMenu();
         $db_title_reading = new ViewTitlesReading();
@@ -103,11 +76,11 @@ class PDFController extends Controller
         $db_visibility = new WorkArticleVisibility();
 
         $menus = $db_story_menu->getMenus();
-        $target_db_titles_readings = $db_title_reading->getViewTitlesReadings(1);
-        $titles = $db_title_reading->getViewTitlesReadings(1);
-        $qas= $db_question_answer->getViewQuestionsAnswers(1);
-        $vocabularies = $db_vocabulary->getViewVocabularies(1);
-        $practices = $db_practice->getViewPractices(1);
+        $target_db_titles_readings = $db_title_reading->getViewTitlesReadings($tense_id);
+        $titles = $db_title_reading->getViewTitlesReadings($tense_id);
+        $qas= $db_question_answer->getViewQuestionsAnswers($tense_id);
+        $vocabularies = $db_vocabulary->getViewVocabularies($tense_id);
+        $practices = $db_practice->getViewPractices($tense_id);
         $visible_articles = $db_visibility->getVisibleWorkArticles();
 
         $readings = [];

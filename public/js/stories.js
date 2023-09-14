@@ -213,14 +213,14 @@ function updateStatus(idName){
 
 $(function(){
     $('.pdf-dl-icon').click(function() {
-		var data = '';
+		var data = $(this).attr("id");
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
             type:'GET',
             url:'/for_teachers/downloadPDF',
-			data: data,
+			data: {"data":data},
             xhrFields: {
                 responseType: 'blob'
             },

@@ -16,8 +16,6 @@ class StoryController extends Controller
     // get all database values for selected tense for initial download page
     public function show($tense_id){
 
-        // dd($tense_id);
-
         $db_story_menu = new StoryMenu();
         $db_title_reading = new ViewTitlesReading();
         $db_question_answer = new ViewQuestionsAnswer();
@@ -43,7 +41,7 @@ class StoryController extends Controller
             array_push($display_sentences, $split_sentences);
             array_push($display_bolds, $split_bolds);
         }
-
+        // dd($split_sentences);
         // insert work_article_visibilities table with visible status value(1)
         $work_article_visibility_func = new WorkArticleVisibility();
         $work_article_visibility_func->setInitialVisibility($article_number);

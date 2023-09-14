@@ -65,7 +65,7 @@
                     <td></td>
                     <td class="menu-icons-area">
                         <div class="menu-icons-circle pdf-pv-icon pdf-icon"><i class="fa-solid fa-file-lines fa-lg"><span class="menu-tooltip tooltip-pv">Preview</span></i></div>
-                        <div class="menu-icons-circle pdf-dl-icon pdf-icon"><i class="fa-solid fa-file-pdf fa-lg"><span class="menu-tooltip tooltip-p">Download PDF</span></i></i></div>
+                        <div id="{{$title->tense_id}}" class="menu-icons-circle pdf-dl-icon pdf-icon"><i class="fa-solid fa-file-pdf fa-lg"><span class="menu-tooltip tooltip-p">Download PDF</span></i></i></div>
                         <div class="menu-icons-circle word-dl-icon pdf-icon"><i class="fa-solid fa-file-word fa-lg"><span class="menu-tooltip tooltip-w">Download Word</span></i></i></div>
                     </td>
                 </tr>
@@ -106,7 +106,7 @@
                                 <span class="vocabulary-article-title">{{$titles[$article_index]->title}}</span>
                             </div>
                             @foreach($vocabularies as $vocabulary)
-                                @if($vocabulary->article_id == intval($article_index)+1)
+                                @if($vocabulary->article_id == $title->article_id)
                                 <div class="vocab-lists"><span>{{$vocabulary->vocabulary_id}}.&nbsp;&nbsp;</span><b>{{$vocabulary->vocabulary}}</b>&nbsp;:&nbsp;{{$vocabulary->meaning}}</div>
                                 @endif
                             @endforeach
@@ -122,7 +122,7 @@
                     <div class="question-{{$article_index}} show">
                         <table>
                             @foreach($qas as $qa)
-                                @if($qa->article_id == intval($article_index)+1)
+                                @if($qa->article_id == $title->article_id)
                                 <tr class="question">
                                     <td rowspan="3" class="question-num">
                                     {{$qa->question_id}}.&nbsp;
@@ -147,7 +147,7 @@
                     <div class="practice-{{$article_index}} show">
                         <table>
                             @foreach($practices as $practice)
-                                @if($practice->article_id == intval($article_index)+1)
+                                @if($practice->article_id == $title->article_id)
                                 <tr class="practice">
                                     <td rowspan="3" class="practice-num">
                                     {{$practice->practice_id}}.&nbsp;
@@ -172,7 +172,7 @@
                     <div class="answer-{{$article_index}} show">
                         <table>
                             @foreach($qas as $qa)
-                                @if($qa->article_id == intval($article_index)+1)
+                                @if($qa->article_id == $title->article_id)
                                 <tr class="answer">
                                     <td class="answer-num">
                                     {{$qa->question_id}}.&nbsp;&nbsp;

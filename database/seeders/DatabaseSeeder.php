@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GrammarTensesSeeder::class);
         $this->call(StoryArticlesSeeder::class);
         $this->call(StoryMenusSeeder::class);
+        $this->call(SessionDbMappingsSeeder::class);
 
     }
 }
