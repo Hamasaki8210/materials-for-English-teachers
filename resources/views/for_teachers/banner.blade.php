@@ -31,8 +31,8 @@
                 <div class="col-2 text-picture">
                 </div>
                 <div class="col-10 msg">
-                    <span class="first-line">More than 1000 Materials</span><br>
-                    <span class="second-line">You can find customizable English teaching materials!</span>
+                    <span class="first-line">Customizable English Teaching Materials</span><br>
+                    <span class="second-line">You can select and download only necessary pages for PDF!</span>
                 </div>
                 <div class="col">
                 </div>

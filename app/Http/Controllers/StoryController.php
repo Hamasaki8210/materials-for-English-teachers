@@ -10,12 +10,14 @@ use App\Models\ViewPractice;
 use App\Models\StoryMenu;
 use App\Models\WorkArticleVisibility;
 use App\Models\SessionDbMapping;
+use App\Models\GrammarTense;
 
 class StoryController extends Controller
 {
     // get all database values for selected tense for initial download page
     public function show($tense_id){
-
+        
+        $db_grammar_tense = new GrammarTense();
         $db_story_menu = new StoryMenu();
         $db_title_reading = new ViewTitlesReading();
         $db_question_answer = new ViewQuestionsAnswer();
@@ -23,6 +25,7 @@ class StoryController extends Controller
         $db_practice = new ViewPractice();
 
         // get database values calling each functions written in each models
+        $display_tense_name = $db_grammar_tense->getGrammarTense($tense_id);
         $target_db_titles_readings = $db_title_reading->getViewTitlesReadings($tense_id);
         $display_questions_answers= $db_question_answer->getViewQuestionsAnswers($tense_id);
         $display_vocabularies = $db_vocabulary->getViewVocabularies($tense_id);
@@ -47,6 +50,7 @@ class StoryController extends Controller
         $work_article_visibility_func->setInitialVisibility($article_number);
 
         return view('for_teachers/download_pages/stories')
+        ->with('tense_name',$display_tense_name[0]->tense)
         ->with('menus',$display_menus)
         ->with('titles',$target_db_titles_readings)
         ->with('readings',$display_sentences)

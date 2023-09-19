@@ -36,10 +36,10 @@ class PDFController extends Controller
         // return response()->json(["test"=>$qas]);
     }
 
-    public function previewPDF() {
+    public function previewPDF(Request $request) {
 
-        $results = $this->updatePDF();
-
+        $tense_id = $request->input("data");
+        $results = $this->updatePDF($tense_id);
         $menus = $results['menus'];
         $titles = $results['titles'];
         $readings = $results['readings'];
@@ -55,15 +55,6 @@ class PDFController extends Controller
         $pdf->save(public_path() . "/" . $fileName);
         $pdf = public_path($fileName);
         return response()->download($pdf);
-        // $grammar_article_contents = GrammarArticle::all();
-        // $pdf = PDF::loadView('for_teachers.test', compact('grammar_article_contents'));
-        // $pdf->setPaper('A4');
-        // return $pdf->stream();
-        // $pdf->setPaper('A4');
-        // $pdf = PDF::loadHTML('<h1>Hello World</h1>');
-
-    	// return $pdf->stream();
-    	// return $pdf->download();
     }
 
     public function updatePDF($tense_id) {

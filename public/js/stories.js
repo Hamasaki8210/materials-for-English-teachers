@@ -168,6 +168,7 @@ $(function(){
 	}
 });
 
+
 function changePageNums(){
 	$(".page-num-area").remove();
 	var pageNum = $('.page').length;
@@ -249,14 +250,14 @@ $(function(){
 
 $(function(){
     $('.pdf-pv-icon').click(function() {
-		var data = '';
+		var data = $(this).attr("id");
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
             type:'GET',
             url:'/for_teachers/previewPDF',
-			data: data,
+			data: {"data":data},
             xhrFields: {
                 responseType: 'blob'
             },
@@ -272,6 +273,9 @@ $(function(){
 				var blob = new Blob([response], { type: 'application/pdf' });
 				var url = URL.createObjectURL(blob);
 				window.open(url);
+
+
+				console.log(url);
             },
             error: function(blob){
                 console.log(blob);

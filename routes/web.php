@@ -20,9 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/for_teachers', function () {
-    return view('/for_teachers/grammar');
-});
+// Route::get('/for_teachers', function () {
+//     return view('/for_teachers/grammar');
+// });
 
 // test
 Route::get('/test', [Test::class,'test']);
@@ -31,9 +31,8 @@ Route::get('/for_teachers/simple_sentences', function () {
     return view('/for_teachers/grammar/simple_sentences');
 });
 
-// Route::get('/for_teachers/stories', [StoryController::class,'show']) -> name('stories');
+Route::get('/for_teachers', 'App\Http\Controllers\GrammarController@index') -> name('top');
 Route::get('/for_teachers/stories/{tense_id}', 'App\Http\Controllers\StoryController@show') -> name('stories');
-// Route::get('/for_teachers/stories', [PDFController::class,'index']) -> name('stories');
 
 Route::get('pdf','App\Http\Controllers\PDFController@index');
 

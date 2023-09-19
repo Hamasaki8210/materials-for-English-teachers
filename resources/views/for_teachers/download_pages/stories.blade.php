@@ -13,14 +13,14 @@
     <div class="story-page-inner">
         <div class="menu-area">
             <div class="bread-crumbs">
-                <div>
-                    Simple Present
+                <div class="bread-crumbs-path bread-crumbs-tense">
+                    <a class="bread-crumbs-nostyle" href="{{ route('top') }}">{{$tense_name}}</a>
                 </div>
-                <div>
+                <div class="bread-crumbs-path">
                     &nbsp;&gt;&nbsp;
                 </div>
-                <div>
-                    Stories
+                <div class="bread-crumbs-path bread-crumbs-current">
+                    Story
                 </div>
             </div>
             <table>
@@ -64,9 +64,9 @@
                 <tr>
                     <td></td>
                     <td class="menu-icons-area">
-                        <div class="menu-icons-circle pdf-pv-icon pdf-icon"><i class="fa-solid fa-file-lines fa-lg"><span class="menu-tooltip tooltip-pv">Preview</span></i></div>
+                        <div id="{{$title->tense_id}}" class="menu-icons-circle pdf-pv-icon pdf-icon"><i class="fa-solid fa-file-lines fa-lg"><span class="menu-tooltip tooltip-pv">Preview</span></i></div>
                         <div id="{{$title->tense_id}}" class="menu-icons-circle pdf-dl-icon pdf-icon"><i class="fa-solid fa-file-pdf fa-lg"><span class="menu-tooltip tooltip-p">Download PDF</span></i></i></div>
-                        <div class="menu-icons-circle word-dl-icon pdf-icon"><i class="fa-solid fa-file-word fa-lg"><span class="menu-tooltip tooltip-w">Download Word</span></i></i></div>
+                        <div id="{{$title->tense_id}}" class="menu-icons-circle word-dl-icon pdf-icon"><i class="fa-solid fa-file-word fa-lg"><span class="menu-tooltip tooltip-w">Download Word</span></i></i></div>
                     </td>
                 </tr>
             </table>
